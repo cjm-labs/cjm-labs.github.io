@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CJM Labs</title>
+  <meta name="description" content="CJM is a Modern C++ build-time JSON code generation tool. Standard C++ in. Standard C++ out.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/">CJM Labs</a>
+    <nav>
+      <a href="https://github.com/cjm-labs/cxx-json-codegen">GitHub</a>
+      <a href="https://github.com/cjm-labs/cxx-json-codegen/releases/tag/v0.1.0">Release notes</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">CJM</p>
+        <h1>Build-time JSON code generation for Modern C++.</h1>
+        <p class="lede">Standard C++ in. Standard C++ out.</p>
+        <p class="intro">
+          CJM lets you write ordinary C++ structs and generate ordinary C++
+          serialization code during the build.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="https://github.com/cjm-labs/cxx-json-codegen">GitHub</a>
+          <a class="button" href="https://github.com/cjm-labs/cxx-json-codegen/releases/tag/v0.1.0">v0.1.0 notes</a>
+        </div>
+      </div>
+
+      <pre class="code-card"><code>struct User {
+    std::string name; // json:"name"
+    int age;          // json:"age"
+};</code></pre>
+    </section>
+
+    <section class="grid-section">
+      <div>
+        <h2>What CJM does</h2>
+        <p>CJM turns a small, explicit C++ input surface into generated serialization code that your compiler can see and check.</p>
+      </div>
+      <ul class="feature-list">
+        <li>Parses ordinary C++ source</li>
+        <li>Builds a metadata model</li>
+        <li>Generates ordinary C++ serialization code</li>
+        <li>Integrates with CMake</li>
+      </ul>
+    </section>
+
+    <section class="release">
+      <h2>v0.1.0</h2>
+      <p>The first minimal working release includes an end-to-end pipeline from C++ input to generated JSON serialization code.</p>
+      <div class="facts">
+        <span>Metadata model</span>
+        <span>Code generator</span>
+        <span><code>cjm generate</code></span>
+        <span><code>cjm_generate(...)</code></span>
+        <span>Golden tests</span>
+        <span>Backend: nlohmann/json</span>
+      </div>
+    </section>
+
+    <section class="examples">
+      <h2>Example</h2>
+      <div class="example-grid">
+        <pre><code>struct User {
+    std::string name; // json:"name"
+    int age;          // json:"age"
+};</code></pre>
+        <pre><code>add_executable(app main.cpp)
+
+cjm_generate(
+    TARGET app
+    HEADERS user.hpp
+)</code></pre>
+      </div>
+      <p>
+        Generated <code>to_json</code> and <code>from_json</code> support normal
+        <code>nlohmann::json</code> usage, including assignment and <code>get_to</code>.
+      </p>
+    </section>
+
+    <section class="philosophy">
+      <h2>Philosophy</h2>
+      <p>
+        CJM is architecture-driven: the parser, generator, and backend are implementation details.
+        The user workflow should stay build-time, inspectable, and grounded in standard C++.
+      </p>
+    </section>
+
+    <section class="links">
+      <h2>Links</h2>
+      <a href="https://github.com/cjm-labs/cxx-json-codegen">CJM GitHub repo</a>
+      <a href="https://github.com/cjm-labs/cxx-json-codegen/releases/tag/v0.1.0">Release notes</a>
+      <a href="https://github.com/cjm-labs">CJM Labs organization</a>
+    </section>
+  </main>
+
+  <footer>
+    <span>CJM Labs</span>
+    <span>Standard C++ in. Standard C++ out.</span>
+  </footer>
+</body>
+</html>
