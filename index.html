@@ -20,11 +20,11 @@
     <section class="hero">
       <div class="hero-copy">
         <p class="eyebrow">CJM</p>
-        <h1>Build-time JSON code generation for Modern C++.</h1>
+        <h1>Build-time code generation for Modern C++.</h1>
         <p class="lede">Standard C++ in. Standard C++ out.</p>
         <p class="intro">
-          CJM lets you write ordinary C++ structs and generate ordinary C++
-          serialization code during the build.
+          CJM starts with JSON serialization, but its larger purpose is to make
+          repetitive C++ development work disappear into the build.
         </p>
         <div class="actions">
           <a class="button primary" href="https://github.com/cjm-labs/cxx-json-codegen">GitHub</a>
@@ -32,10 +32,67 @@
         </div>
       </div>
 
-      <pre class="code-card"><code>struct User {
+      <div class="terminal-card" aria-label="CJM example">
+        <div class="terminal-bar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <pre><code>struct User {
     std::string name; // json:"name"
     int age;          // json:"age"
-};</code></pre>
+};
+
+cjm_generate(
+    TARGET app
+    HEADERS user.hpp
+)</code></pre>
+      </div>
+    </section>
+
+    <section class="vision">
+      <div class="section-copy">
+        <p class="eyebrow">Why CJM exists</p>
+        <h2>Modern C++ is powerful. Everyday boilerplate should not be the cost.</h2>
+      </div>
+      <div class="vision-copy">
+        <p>
+          Serialization, configuration, metadata, reflection-like workflows, and
+          schema generation often force developers to write code that machines
+          can generate reliably.
+        </p>
+        <p>
+          CJM exists to remove that repetition without replacing C++, adding a
+          runtime reflection engine, or asking teams to adopt a new framework.
+        </p>
+      </div>
+    </section>
+
+    <section class="architecture">
+      <div class="section-copy">
+        <p class="eyebrow">Architecture</p>
+        <h2>Build-time generation, normal compiler workflow.</h2>
+        <p>
+          CJM sits inside the build. The parser, semantic analysis, metadata
+          model, generator, and backend are implementation details. The user
+          writes C++, the build produces C++, and the normal compiler remains
+          the final judge.
+        </p>
+      </div>
+
+      <div class="flow" aria-label="CJM build-time architecture">
+        <div class="flow-step">User C++ Source</div>
+        <div class="flow-arrow">&darr;</div>
+        <div class="flow-step">CMake Build</div>
+        <div class="flow-arrow">&darr;</div>
+        <div class="flow-step strong">CJM</div>
+        <div class="flow-arrow">&darr;</div>
+        <div class="flow-step">Generated C++</div>
+        <div class="flow-arrow">&darr;</div>
+        <div class="flow-step">Normal Compiler</div>
+        <div class="flow-arrow">&darr;</div>
+        <div class="flow-step">Executable</div>
+      </div>
     </section>
 
     <section class="grid-section">
@@ -84,11 +141,42 @@ cjm_generate(
       </p>
     </section>
 
+    <section class="principles">
+      <div class="section-copy">
+        <p class="eyebrow">Principles</p>
+        <h2>Engineering before magic.</h2>
+      </div>
+      <div class="principle-grid">
+        <article>
+          <h3>Ordinary C++ should be enough</h3>
+          <p>Users write standard C++. Generated output is standard C++. Everything in between is CJM's responsibility.</p>
+        </article>
+        <article>
+          <h3>Build-time instead of runtime</h3>
+          <p>No hidden runtime, no dynamic reflection engine, and no runtime cost introduced by CJM.</p>
+        </article>
+        <article>
+          <h3>Visible and predictable</h3>
+          <p>Generated code should be readable, inspectable, and debuggable when developers need to look inside.</p>
+        </article>
+        <article>
+          <h3>Native to existing builds</h3>
+          <p>Adding CJM should feel like enabling another compiler tool inside an existing CMake project.</p>
+        </article>
+      </div>
+    </section>
+
     <section class="philosophy">
-      <h2>Philosophy</h2>
+      <h2>Long-term vision</h2>
       <p>
-        CJM is architecture-driven: the parser, generator, and backend are implementation details.
-        The user workflow should stay build-time, inspectable, and grounded in standard C++.
+        The first goal is build-time JSON code generation. The larger goal is a
+        reusable foundation for modern build-time code generation in C++:
+        simple user experience, production-quality engineering, and zero
+        runtime overhead introduced by CJM.
+      </p>
+      <p>
+        CJM succeeds when developers forget that code generation is happening.
+        They write standard C++, run their normal build, and everything works.
       </p>
     </section>
 
