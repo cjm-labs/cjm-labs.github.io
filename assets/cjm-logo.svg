@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 180" role="img" aria-labelledby="title desc">
+  <title id="title">CJM logo</title>
+  <desc id="desc">A minimal CJM letterform mark with modern seal-inspired brush geometry.</desc>
+  <defs>
+    <linearGradient id="ink" x1="50" y1="44" x2="224" y2="138" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#183f76"/>
+      <stop offset="0.55" stop-color="#245a7a"/>
+      <stop offset="1" stop-color="#2f7a5f"/>
+    </linearGradient>
+    <linearGradient id="seal" x1="56" y1="128" x2="220" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#b94a3b"/>
+      <stop offset="1" stop-color="#c98a1c"/>
+    </linearGradient>
+    <filter id="shadow" x="-14%" y="-20%" width="128%" height="144%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="12" stdDeviation="11" flood-color="#0f1720" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+
+  <rect x="22" y="22" width="236" height="136" fill="#fffdf7" stroke="#d8d8cf" stroke-width="3"/>
+
+  <g filter="url(#shadow)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M104 54C82 47 59 60 54 84C48 113 72 134 102 125"
+          stroke="url(#ink)" stroke-width="22"/>
+    <path d="M135 53V105C135 127 120 138 99 130"
+          stroke="url(#ink)" stroke-width="22"/>
+    <path d="M163 128V55L190 98L218 55V128"
+          stroke="url(#ink)" stroke-width="22"/>
+    <path d="M61 139C105 127 158 127 219 139"
+          stroke="url(#seal)" stroke-width="8"/>
+  </g>
+
+  <g fill="#fffdf7" opacity="0.92">
+    <path d="M83 59L96 54L92 68L78 72Z"/>
+    <path d="M135 54L145 61L135 69Z"/>
+    <path d="M190 98L201 84L205 104Z"/>
+  </g>
+</svg>

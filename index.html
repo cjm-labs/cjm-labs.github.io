@@ -10,7 +10,7 @@
 <body>
   <header class="site-header">
     <a class="brand" href="/" aria-label="CJM Labs home">
-      <span class="logo-mark" aria-hidden="true"><span>CJM</span></span>
+      <img class="logo-mark" src="assets/cjm-logo.svg" alt="" aria-hidden="true">
       <span>CJM Labs</span>
     </a>
     <nav>
@@ -23,17 +23,17 @@
     <section class="hero">
       <div class="hero-copy">
         <div class="product-lockup">
-          <span class="logo-mark logo-mark-large" aria-hidden="true"><span>CJM</span></span>
+          <img class="logo-mark logo-mark-large" src="assets/cjm-logo.svg" alt="" aria-hidden="true">
           <div>
             <p class="eyebrow">CJM</p>
-            <p class="product-line">C++ source to generated JSON code</p>
+            <p class="product-line"><span class="term-cpp">C++ source</span> to <span class="term-json">generated JSON code</span></p>
           </div>
         </div>
-        <h1>Build-time code generation for Modern C++.</h1>
-        <p class="lede">Standard C++ in. Standard C++ out.</p>
+        <h1><span class="term-build">Build-time</span> code generation for <span class="term-cpp">Modern C++</span>.</h1>
+        <p class="lede"><span class="term-cpp">Standard C++</span> in. <span class="term-json">Standard C++</span> out.</p>
         <p class="intro">
-          CJM starts with JSON serialization, but its larger purpose is to make
-          repetitive C++ development work disappear into the build.
+          CJM starts with <span class="term-json">JSON serialization</span>, but its larger purpose is to make
+          repetitive <span class="term-cpp">C++ development</span> work disappear into the <span class="term-build">build</span>.
         </p>
         <div class="signal-row" aria-label="CJM themes">
           <span>C++</span>
@@ -47,14 +47,32 @@
         </div>
       </div>
 
-      <div class="terminal-card" aria-label="CJM example">
-        <div class="terminal-bar">
-          <span></span>
-          <span></span>
-          <span></span>
-          <strong>user.hpp</strong>
+      <div class="hero-visual" aria-label="CJM build-time workflow">
+        <div class="pipeline-panel">
+          <div class="pipeline-node source">
+            <span>user.hpp</span>
+            <strong>C++ Source</strong>
+          </div>
+          <div class="pipeline-link">→</div>
+          <div class="pipeline-node core">
+            <span>cjm_generate</span>
+            <strong>Build Step</strong>
+          </div>
+          <div class="pipeline-link">→</div>
+          <div class="pipeline-node output">
+            <span>*.cjm.hpp</span>
+            <strong>Generated C++</strong>
+          </div>
         </div>
-        <pre><code>struct User {
+
+        <div class="terminal-card" aria-label="CJM example">
+          <div class="terminal-bar">
+            <span></span>
+            <span></span>
+            <span></span>
+            <strong>user.hpp</strong>
+          </div>
+          <pre><code>struct User {
     std::string name; // json:"name"
     int age;          // json:"age"
 };
@@ -63,6 +81,26 @@ cjm_generate(
     TARGET app
     HEADERS user.hpp
 )</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof-strip" aria-label="CJM product guarantees">
+      <div>
+        <span class="proof-kicker">Input</span>
+        <strong>Standard C++</strong>
+      </div>
+      <div>
+        <span class="proof-kicker">Workflow</span>
+        <strong>Build-time generation</strong>
+      </div>
+      <div>
+        <span class="proof-kicker">Output</span>
+        <strong>Standard C++</strong>
+      </div>
+      <div>
+        <span class="proof-kicker">Runtime</span>
+        <strong>Zero overhead introduced by CJM</strong>
       </div>
     </section>
 
@@ -70,16 +108,16 @@ cjm_generate(
       <div class="vision">
         <div class="section-copy">
           <p class="eyebrow">Why CJM exists</p>
-          <h2>Modern C++ is powerful. Everyday boilerplate should not be the cost.</h2>
+          <h2><span class="term-cpp">Modern C++</span> is powerful. Everyday boilerplate should not be the cost.</h2>
         </div>
         <div class="vision-copy">
           <p>
-            Serialization, configuration, metadata, reflection-like workflows,
+            <span class="term-json">Serialization</span>, configuration, metadata, reflection-like workflows,
             and schema generation often force developers to write code that
             machines can generate reliably.
           </p>
           <p>
-            CJM removes that repetition without replacing C++, adding runtime
+            CJM removes that repetition without replacing <span class="term-cpp">C++</span>, adding runtime
             reflection, or asking teams to adopt a new framework.
           </p>
         </div>
@@ -88,9 +126,9 @@ cjm_generate(
       <div class="architecture">
         <div class="section-copy">
           <p class="eyebrow">Architecture</p>
-          <h2>Build-time generation, normal compiler workflow.</h2>
+          <h2><span class="term-build">Build-time generation</span>, normal compiler workflow.</h2>
           <p>
-            CJM sits inside the build. The parser, semantic analysis, metadata
+            CJM sits inside the <span class="term-build">build</span>. The parser, semantic analysis, metadata
             model, generator, and backend are implementation details.
           </p>
         </div>
@@ -114,7 +152,7 @@ cjm_generate(
     <section class="product-grid">
       <div class="panel what">
         <h2>What CJM does</h2>
-        <p>CJM turns a small, explicit C++ input surface into generated serialization code that your compiler can see and check.</p>
+        <p>CJM turns a small, explicit <span class="term-cpp">C++ input surface</span> into <span class="term-json">generated serialization code</span> that your compiler can see and check.</p>
         <ul class="feature-list">
           <li>Parses ordinary C++ source</li>
           <li>Builds a metadata model</li>
@@ -125,7 +163,7 @@ cjm_generate(
 
       <div class="panel release">
         <h2>v0.1.0</h2>
-        <p>The first minimal working release includes an end-to-end pipeline from C++ input to generated JSON serialization code.</p>
+        <p>The first minimal working release includes an end-to-end pipeline from <span class="term-cpp">C++ input</span> to <span class="term-json">generated JSON serialization code</span>.</p>
         <div class="facts">
           <span>Metadata model</span>
           <span>Code generator</span>
@@ -150,34 +188,41 @@ cjm_generate(
     TARGET app
     HEADERS user.hpp
 )</code></pre>
+        <pre><code>nlohmann::json json = user;
+
+User restored;
+json.get_to(restored);</code></pre>
       </div>
       <p>
-        Generated <code>to_json</code> and <code>from_json</code> support normal
+        <span class="term-json">Generated</span> <code>to_json</code> and <code>from_json</code> support normal
         <code>nlohmann::json</code> usage, including assignment and <code>get_to</code>.
       </p>
     </section>
 
     <section class="principles">
-      <div class="section-copy">
+      <div class="principles-intro">
         <p class="eyebrow">Principles</p>
-        <h2>Engineering before magic.</h2>
+        <p>
+          Engineering before magic: CJM should feel native, predictable, and
+          easy to inspect when the generated code matters.
+        </p>
       </div>
       <div class="principle-grid">
         <article>
-          <h3>Ordinary C++ should be enough</h3>
+          <h3>Ordinary <span class="term-cpp">C++</span> should be enough</h3>
           <p>Users write standard C++. Generated output is standard C++. Everything in between is CJM's responsibility.</p>
         </article>
         <article>
-          <h3>Build-time instead of runtime</h3>
+          <h3><span class="term-build">Build-time</span> instead of runtime</h3>
           <p>No hidden runtime, no dynamic reflection engine, and no runtime cost introduced by CJM.</p>
         </article>
         <article>
           <h3>Visible and predictable</h3>
-          <p>Generated code should be readable, inspectable, and debuggable when developers need to look inside.</p>
+          <p><span class="term-json">Generated code</span> should be readable, inspectable, and debuggable when developers need to look inside.</p>
         </article>
         <article>
           <h3>Native to existing builds</h3>
-          <p>Adding CJM should feel like enabling another compiler tool inside an existing CMake project.</p>
+          <p>Adding CJM should feel like enabling another compiler tool inside an existing <span class="term-build">CMake project</span>.</p>
         </article>
       </div>
     </section>
@@ -185,18 +230,18 @@ cjm_generate(
     <section class="philosophy">
       <div>
         <p class="eyebrow">Long-term vision</p>
-        <h2>Code generation should feel like the build simply got smarter.</h2>
+        <h2>Code generation should feel like the <span class="term-build">build</span> simply got smarter.</h2>
       </div>
       <div>
         <p>
-          The first goal is build-time JSON code generation. The larger goal is
-          a reusable foundation for modern build-time code generation in C++:
+          The first goal is <span class="term-build">build-time</span> <span class="term-json">JSON code generation</span>. The larger goal is
+          a reusable foundation for modern build-time code generation in <span class="term-cpp">C++</span>:
           simple user experience, production-quality engineering, and zero
           runtime overhead introduced by CJM.
         </p>
         <p>
           CJM succeeds when developers forget that code generation is happening.
-          They write standard C++, run their normal build, and everything works.
+          They write <span class="term-cpp">standard C++</span>, run their normal <span class="term-build">build</span>, and everything works.
         </p>
       </div>
     </section>
