@@ -3,14 +3,47 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CJM Labs</title>
-  <meta name="description" content="CJM is a Modern C++ build-time JSON code generation tool. Standard C++ in. Standard C++ out.">
+  <title>CJM Labs | Build-time JSON Code Generation for Modern C++</title>
+  <meta name="description" content="CJM is a Modern C++ build-time JSON code generation tool. Write standard C++, generate standard C++, and keep the compiler workflow native.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://cjm-labs.org/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CJM Labs">
+  <meta property="og:title" content="CJM Labs | Build-time JSON Code Generation for Modern C++">
+  <meta property="og:description" content="Standard C++ in. Standard C++ out. CJM generates ordinary C++ serialization code during the build.">
+  <meta property="og:url" content="https://cjm-labs.org/">
+  <meta property="og:image" content="https://cjm-labs.org/assets/cjm-logo.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CJM Labs | Build-time JSON Code Generation for Modern C++">
+  <meta name="twitter:description" content="Standard C++ in. Standard C++ out. CJM generates ordinary C++ serialization code during the build.">
+  <meta name="twitter:image" content="https://cjm-labs.org/assets/cjm-logo.svg">
+  <link rel="icon" href="/assets/cjm-logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareSourceCode",
+      "name": "CJM",
+      "alternateName": "C++ JSON code generation",
+      "description": "CJM is a Modern C++ build-time JSON code generation tool that generates ordinary C++ serialization code from ordinary C++ source.",
+      "url": "https://cjm-labs.org/",
+      "codeRepository": "https://github.com/cjm-labs/cxx-json-codegen",
+      "programmingLanguage": "C++",
+      "runtimePlatform": "CMake",
+      "softwareVersion": "v0.1.0",
+      "license": "https://opensource.org/license/mit/",
+      "creator": {
+        "@type": "Organization",
+        "name": "CJM Labs",
+        "url": "https://github.com/cjm-labs"
+      }
+    }
+  </script>
 </head>
 <body>
   <header class="site-header">
     <a class="brand" href="/" aria-label="CJM Labs home">
-      <img class="logo-mark" src="assets/cjm-logo.svg" alt="" aria-hidden="true">
+      <img class="logo-mark" src="assets/cjm-logo.svg" width="56" height="36" alt="" aria-hidden="true">
       <span>CJM Labs</span>
     </a>
     <nav>
@@ -23,7 +56,7 @@
     <section class="hero">
       <div class="hero-copy">
         <div class="product-lockup">
-          <img class="logo-mark logo-mark-large" src="assets/cjm-logo.svg" alt="" aria-hidden="true">
+          <img class="logo-mark logo-mark-large" src="assets/cjm-logo.svg" width="136" height="87" alt="" aria-hidden="true">
           <div>
             <p class="eyebrow">CJM</p>
             <p class="product-line"><span class="term-cpp">C++ source</span> to <span class="term-json">generated JSON code</span></p>
@@ -255,8 +288,15 @@ json.get_to(restored);</code></pre>
   </main>
 
   <footer>
-    <span>CJM Labs</span>
-    <span>Standard C++ in. Standard C++ out.</span>
+    <div>
+      <span>CJM Labs</span>
+      <span>Standard C++ in. Standard C++ out.</span>
+    </div>
+    <div class="footer-links">
+      <span>Version v0.1.0</span>
+      <a href="https://github.com/cjm-labs/cxx-json-codegen/blob/main/LICENSE">MIT License</a>
+      <a href="https://github.com/cjm-labs/cxx-json-codegen">GitHub</a>
+    </div>
   </footer>
 </body>
 </html>

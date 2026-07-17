@@ -677,6 +677,21 @@ footer {
   color: var(--muted);
 }
 
+footer > div {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--text);
+}
+
 .principles-intro {
   display: flex;
   align-items: baseline;
