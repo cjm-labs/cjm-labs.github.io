@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CJM Labs | Build-time JSON Code Generation for Modern C++</title>
-  <meta name="description" content="CJM is a Modern C++ build-time JSON code generation tool. Write standard C++, generate standard C++, and keep the compiler workflow native.">
+  <title>CJM Labs | Build-time Metadata Compiler for Modern C++</title>
+  <meta name="description" content="CJM is a build-time metadata compiler for Modern C++. It extracts source-level metadata, builds a stable Metadata IR, and generates backend-specific C++ code during the build.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://cjm-labs.org/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="CJM Labs">
-  <meta property="og:title" content="CJM Labs | Build-time JSON Code Generation for Modern C++">
-  <meta property="og:description" content="Standard C++ in. Standard C++ out. CJM generates ordinary C++ serialization code during the build.">
+  <meta property="og:title" content="CJM Labs | Build-time Metadata Compiler for Modern C++">
+  <meta property="og:description" content="Standard C++ in. Standard C++ out. CJM builds a stable Metadata IR and generates backend-specific C++ code during the build.">
   <meta property="og:url" content="https://cjm-labs.org/">
   <meta property="og:image" content="https://cjm-labs.org/assets/cjm-logo.svg">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="CJM Labs | Build-time JSON Code Generation for Modern C++">
-  <meta name="twitter:description" content="Standard C++ in. Standard C++ out. CJM generates ordinary C++ serialization code during the build.">
+  <meta name="twitter:title" content="CJM Labs | Build-time Metadata Compiler for Modern C++">
+  <meta name="twitter:description" content="Standard C++ in. Standard C++ out. CJM builds a stable Metadata IR and generates backend-specific C++ code during the build.">
   <meta name="twitter:image" content="https://cjm-labs.org/assets/cjm-logo.svg">
   <link rel="icon" href="/assets/cjm-logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
@@ -24,8 +24,8 @@
       "@context": "https://schema.org",
       "@type": "SoftwareSourceCode",
       "name": "CJM",
-      "alternateName": "C++ JSON code generation",
-      "description": "CJM is a Modern C++ build-time JSON code generation tool that generates ordinary C++ serialization code from ordinary C++ source.",
+      "alternateName": "Modern C++ metadata compiler",
+      "description": "CJM is a build-time metadata compiler for Modern C++. It extracts source-level metadata from ordinary C++ declarations, builds a stable Metadata IR, and generates backend-specific C++ code during the build. The first official backend generates nlohmann/json integration.",
       "url": "https://cjm-labs.org/",
       "sameAs": [
         "https://github.com/cjm-labs"
@@ -65,18 +65,23 @@
           <img class="logo-mark logo-mark-large" src="assets/cjm-logo.svg" width="136" height="87" alt="" aria-hidden="true">
           <div>
             <p class="eyebrow">CJM</p>
-            <p class="product-line"><span class="term-cpp">C++ source</span> to <span class="term-json">generated JSON code</span></p>
+            <p class="product-line"><span class="term-cpp">C++ declarations</span> to <span class="term-build">Metadata IR</span> to generated C++</p>
           </div>
         </div>
-        <h1><span class="term-build">Build-time</span> code generation for <span class="term-cpp">Modern C++</span>.</h1>
+        <h1><span class="term-build">Build-time Metadata Compiler</span> for <span class="term-cpp">Modern C++</span>.</h1>
         <p class="lede"><span class="term-cpp">Standard C++</span> in. <span class="term-json">Standard C++</span> out.</p>
         <p class="intro">
-          CJM starts with <span class="term-json">JSON serialization</span>, but its larger purpose is to make
-          repetitive <span class="term-cpp">C++ development</span> work disappear into the <span class="term-build">build</span>.
+          CJM extracts source-level metadata from ordinary <span class="term-cpp">C++ declarations</span>,
+          builds a stable <span class="term-build">Metadata IR</span>, and generates backend-specific
+          C++ code during the build.
+        </p>
+        <p class="intro">
+          The first official backend generates <span class="term-json">nlohmann/json integration</span>
+          from Go-style field metadata.
         </p>
         <div class="signal-row" aria-label="CJM themes">
           <span>C++</span>
-          <span>JSON</span>
+          <span>Metadata IR</span>
           <span>CMake</span>
           <span>Build-time</span>
         </div>
@@ -90,17 +95,17 @@
         <div class="pipeline-panel">
           <div class="pipeline-node source">
             <span>user.hpp</span>
-            <strong>C++ Source</strong>
+            <strong>C++ Frontend</strong>
           </div>
           <div class="pipeline-link">→</div>
           <div class="pipeline-node core">
-            <span>cjm_generate</span>
-            <strong>Build Step</strong>
+            <span>stable contract</span>
+            <strong>Metadata IR</strong>
           </div>
           <div class="pipeline-link">→</div>
           <div class="pipeline-node output">
-            <span>*.cjm.hpp</span>
-            <strong>Generated C++</strong>
+            <span>nlohmann/json</span>
+            <strong>Backend</strong>
           </div>
         </div>
 
@@ -131,10 +136,10 @@ cjm_generate(
       </div>
       <div>
         <span class="proof-kicker">Workflow</span>
-        <strong>Build-time generation</strong>
+        <strong>Metadata IR</strong>
       </div>
       <div>
-        <span class="proof-kicker">Output</span>
+        <span class="proof-kicker">Backend</span>
         <strong>Standard C++</strong>
       </div>
       <div>
@@ -152,7 +157,7 @@ cjm_generate(
         <div class="vision-copy">
           <p>
             <span class="term-json">Serialization</span>, configuration, metadata, reflection-like workflows,
-            and schema generation often force developers to write code that
+            and schema-adjacent boilerplate often force developers to write code that
             machines can generate reliably.
           </p>
           <p>
@@ -165,25 +170,31 @@ cjm_generate(
       <div class="architecture">
         <div class="section-copy">
           <p class="eyebrow">Architecture</p>
-          <h2><span class="term-build">Build-time generation</span>, normal compiler workflow.</h2>
+          <h2><span class="term-build">Compiler architecture</span>, normal compiler workflow.</h2>
           <p>
-            CJM sits inside the <span class="term-build">build</span>. The parser, semantic analysis, metadata
-            model, generator, and backend are implementation details.
+            CJM sits inside the <span class="term-build">build</span>. Metadata IR is the stable
+            contract between source-language frontends and code-generation backends.
+            Today, CJM uses a C++ frontend and an nlohmann/json backend.
           </p>
         </div>
 
-        <div class="flow" aria-label="CJM build-time architecture">
-          <div class="flow-step cpp">User C++ Source</div>
-          <div class="flow-arrow">&darr;</div>
-          <div class="flow-step">CMake Build</div>
-          <div class="flow-arrow">&darr;</div>
-          <div class="flow-step strong">CJM</div>
-          <div class="flow-arrow">&darr;</div>
-          <div class="flow-step json">Generated C++</div>
-          <div class="flow-arrow">&darr;</div>
-          <div class="flow-step">Normal Compiler</div>
-          <div class="flow-arrow">&darr;</div>
-          <div class="flow-step">Executable</div>
+        <div class="architecture-flows">
+          <div class="flow" aria-label="Current CJM build-time architecture">
+            <p class="flow-caption">Current pipeline</p>
+            <div class="flow-step cpp">C++ frontend</div>
+            <div class="flow-arrow">&darr;</div>
+            <div class="flow-step strong">Metadata IR</div>
+            <div class="flow-arrow">&darr;</div>
+            <div class="flow-step json">nlohmann/json backend</div>
+          </div>
+          <div class="flow" aria-label="Long-term CJM compiler architecture">
+            <p class="flow-caption">Long-term architecture</p>
+            <div class="flow-step cpp">Source-language frontend</div>
+            <div class="flow-arrow">&darr;</div>
+            <div class="flow-step strong">Language-neutral Metadata IR</div>
+            <div class="flow-arrow">&darr;</div>
+            <div class="flow-step json">Code-generation backend</div>
+          </div>
         </div>
       </div>
     </section>
@@ -191,20 +202,20 @@ cjm_generate(
     <section class="product-grid">
       <div class="panel what">
         <h2>What CJM does</h2>
-        <p>CJM turns a small, explicit <span class="term-cpp">C++ input surface</span> into <span class="term-json">generated serialization code</span> that your compiler can see and check.</p>
+        <p>CJM turns ordinary <span class="term-cpp">C++ declarations</span> into a stable <span class="term-build">Metadata IR</span>, then emits ordinary C++ code for the current backend.</p>
         <ul class="feature-list">
-          <li>Parses ordinary C++ source</li>
-          <li>Builds a metadata model</li>
-          <li>Generates ordinary C++ serialization code</li>
+          <li>Extracts source-level metadata from ordinary C++ declarations</li>
+          <li>Builds a stable Metadata IR</li>
+          <li>Generates ordinary C++ code for the current backend</li>
           <li>Integrates with CMake</li>
         </ul>
       </div>
 
       <div class="panel release">
         <h2>v0.1.0</h2>
-        <p>The first minimal working release includes an end-to-end pipeline from <span class="term-cpp">C++ input</span> to <span class="term-json">generated JSON serialization code</span>.</p>
+        <p>The first minimal working release includes an end-to-end pipeline from <span class="term-cpp">C++ input</span> through Metadata IR to <span class="term-json">nlohmann/json integration code</span>.</p>
         <div class="facts">
-          <span>Metadata model</span>
+          <span>Metadata IR</span>
           <span>Code generator</span>
           <span><code>cjm generate</code></span>
           <span><code>cjm_generate(...)</code></span>
@@ -233,8 +244,9 @@ User restored;
 json.get_to(restored);</code></pre>
       </div>
       <p>
-        <span class="term-json">Generated</span> <code>to_json</code> and <code>from_json</code> support normal
-        <code>nlohmann::json</code> usage, including assignment and <code>get_to</code>.
+        The current <span class="term-json">nlohmann/json backend</span> generates ordinary
+        <code>to_json</code> and <code>from_json</code> functions for normal <code>nlohmann::json</code>
+        usage, including assignment and <code>get_to</code>.
       </p>
     </section>
 
@@ -257,7 +269,7 @@ json.get_to(restored);</code></pre>
         </article>
         <article>
           <h3>Visible and predictable</h3>
-          <p><span class="term-json">Generated code</span> should be readable, inspectable, and debuggable when developers need to look inside.</p>
+          <p><span class="term-json">Generated C++</span> should be readable, inspectable, and debuggable when developers need to look inside.</p>
         </article>
         <article>
           <h3>Native to existing builds</h3>
@@ -273,8 +285,8 @@ json.get_to(restored);</code></pre>
       </div>
       <div>
         <p>
-          The first goal is <span class="term-build">build-time</span> <span class="term-json">JSON code generation</span>. The larger goal is
-          a reusable foundation for modern build-time code generation in <span class="term-cpp">C++</span>:
+          The first backend generates <span class="term-json">nlohmann/json integration</span>. The larger goal is
+          a reusable compiler foundation for modern build-time metadata workflows in <span class="term-cpp">C++</span>:
           simple user experience, production-quality engineering, and zero
           runtime overhead introduced by CJM.
         </p>

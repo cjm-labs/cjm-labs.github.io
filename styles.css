@@ -517,6 +517,21 @@ code {
   border: 1px solid var(--line);
 }
 
+.architecture-flows {
+  display: grid;
+  gap: 14px;
+}
+
+.flow-caption {
+  width: min(100%, 330px);
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: left;
+}
+
 .flow-step {
   width: min(100%, 330px);
   padding: 10px 14px;
