@@ -418,6 +418,7 @@ code {
 .proof-strip,
 .product-grid,
 .examples,
+.release-details,
 .principles,
 .philosophy,
 .links {
@@ -475,6 +476,12 @@ code {
 .product-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.release-details {
+  display: grid;
+  grid-template-columns: 1.2fr 1.2fr 0.8fr;
   gap: 22px;
 }
 
@@ -744,6 +751,7 @@ footer > div {
 
   .hero,
   .product-grid,
+  .release-details,
   .proof-strip,
   .vision,
   .architecture,
