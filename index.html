@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CJM Labs | CJM v0.2.0 Practical Models</title>
-  <meta name="description" content="CJM v0.2.0 is the Practical Models release of the build-time metadata compiler for Modern C++. It keeps C++ models as the source of truth and generates nlohmann/json integration code during the build.">
+  <title>CJM Labs | Build-time Metadata Compiler for Modern C++</title>
+  <meta name="description" content="CJM is a build-time metadata compiler for Modern C++. v0.3.0 adds practical type coverage for nlohmann/json integration, including string-keyed maps and fixed-width numeric types.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://cjm-labs.org/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="CJM Labs">
-  <meta property="og:title" content="CJM Labs | CJM v0.2.0 Practical Models">
-  <meta property="og:description" content="Build-time metadata compilation for practical C++ JSON models. CJM v0.2.0 generates nlohmann/json integration from ordinary C++ declarations.">
+  <meta property="og:title" content="CJM Labs | Build-time Metadata Compiler for Modern C++">
+  <meta property="og:description" content="Standard C++ in. Standard C++ out. CJM builds Metadata IR from ordinary C++ declarations and generates nlohmann/json integration during the build.">
   <meta property="og:url" content="https://cjm-labs.org/">
   <meta property="og:image" content="https://cjm-labs.org/assets/cjm-logo.svg">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="CJM Labs | CJM v0.2.0 Practical Models">
-  <meta name="twitter:description" content="Build-time metadata compilation for practical C++ JSON models. CJM v0.2.0 generates nlohmann/json integration from ordinary C++ declarations.">
+  <meta name="twitter:title" content="CJM Labs | Build-time Metadata Compiler for Modern C++">
+  <meta name="twitter:description" content="Standard C++ in. Standard C++ out. CJM builds Metadata IR from ordinary C++ declarations and generates nlohmann/json integration during the build.">
   <meta name="twitter:image" content="https://cjm-labs.org/assets/cjm-logo.svg">
   <link rel="icon" href="/assets/cjm-logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
@@ -25,7 +25,7 @@
       "@type": "SoftwareSourceCode",
       "name": "CJM",
       "alternateName": "Modern C++ metadata compiler",
-      "description": "CJM v0.2.0 is the Practical Models release of the build-time metadata compiler for Modern C++. It extracts source-level metadata from ordinary C++ declarations, builds a stable Metadata IR, and generates nlohmann/json integration code during the build.",
+      "description": "CJM is a build-time metadata compiler for Modern C++. v0.3.0 adds practical type coverage for nlohmann/json integration, including string-keyed maps and fixed-width numeric types.",
       "url": "https://cjm-labs.org/",
       "sameAs": [
         "https://github.com/cjm-labs"
@@ -33,7 +33,7 @@
       "codeRepository": "https://github.com/cjm-labs/cxx-json-codegen",
       "programmingLanguage": "C++",
       "runtimePlatform": "CMake",
-      "softwareVersion": "v0.2.0",
+      "softwareVersion": "v0.3.0",
       "license": "https://opensource.org/license/mit/",
       "creator": {
         "@type": "Organization",
@@ -54,7 +54,7 @@
     </a>
     <nav>
       <a href="https://github.com/cjm-labs/cxx-json-codegen">GitHub</a>
-      <a href="https://github.com/cjm-labs/cxx-json-codegen/blob/main/docs/releases/v0.2.0.md">Release notes</a>
+      <a href="https://github.com/cjm-labs/cxx-json-codegen/releases/tag/v0.3.0">Release notes</a>
     </nav>
   </header>
 
@@ -64,20 +64,19 @@
         <div class="product-lockup">
           <img class="logo-mark logo-mark-large" src="assets/cjm-logo.svg" width="136" height="87" alt="" aria-hidden="true">
           <div>
-            <p class="eyebrow">CJM v0.2.0</p>
+            <p class="eyebrow">CJM v0.3.0</p>
             <p class="product-line"><span class="term-build">Build-time Metadata Compiler</span> for <span class="term-cpp">Modern C++</span></p>
           </div>
         </div>
-        <h1>CJM v0.2.0: <span class="term-build">Practical Models</span>.</h1>
-        <p class="lede">Build-time metadata compilation for practical <span class="term-cpp">C++</span> <span class="term-json">JSON</span> models.</p>
+        <h1>CJM is a <span class="term-build">build-time metadata compiler</span> for <span class="term-cpp">Modern C++</span>.</h1>
+        <p class="lede">Write ordinary <span class="term-cpp">C++</span> models with source-level <span class="term-json">JSON metadata</span>. CJM builds a stable <span class="term-build">Metadata IR</span> and generates ordinary C++ integration code during your build.</p>
         <p class="intro">
-          CJM lets developers keep <span class="term-cpp">C++ models</span> as the source of truth.
-          It extracts source-level metadata, builds a stable <span class="term-build">Metadata IR</span>,
-          and generates ordinary C++ integration code at build time.
+          <span class="term-json">nlohmann/json</span> is the first official backend.
+          CJM is not a JSON library, reflection framework, or serialization runtime.
         </p>
         <p class="intro">
-          v0.2.0 expands CJM from a minimal generator into a layered compiler pipeline with
-          practical model support, repeated explicit input headers, and generated-code verification.
+          <strong>Standard C++ in. Standard C++ out.</strong>
+          Developers keep C++ models as the source of truth while CJM handles the repetitive integration code.
         </p>
         <div class="signal-row" aria-label="CJM themes">
           <span>C++</span>
@@ -87,14 +86,14 @@
         </div>
         <div class="actions">
           <a class="button primary" href="https://github.com/cjm-labs/cxx-json-codegen">GitHub</a>
-          <a class="button" href="https://github.com/cjm-labs/cxx-json-codegen/blob/main/docs/releases/v0.2.0.md">v0.2.0 notes</a>
+          <a class="button" href="https://github.com/cjm-labs/cxx-json-codegen/releases/tag/v0.3.0">v0.3.0 release</a>
         </div>
       </div>
 
       <div class="hero-visual" aria-label="CJM build-time workflow">
         <div class="pipeline-panel">
           <div class="pipeline-node source">
-            <span>address.hpp + user.hpp</span>
+            <span>user.hpp</span>
             <strong>C++ Frontend</strong>
           </div>
           <div class="pipeline-link">→</div>
@@ -114,22 +113,16 @@
             <span></span>
             <span></span>
             <span></span>
-            <strong>model.hpp</strong>
+            <strong>user.hpp</strong>
           </div>
-          <pre><code>struct Address {
-    std::string city; // json:"city"
+          <pre><code>struct User {
+    std::string name; // json:"name"
+    int age = 0;      // json:"age"
 };
 
-struct User {
-    std::string name;              // json:"name"
-    std::vector&lt;std::string&gt; tags; // json:"tags"
-    std::optional&lt;std::string&gt; nickname;
-};
-
-cjm_generate(
-    TARGET app
-    HEADERS address.hpp user.hpp
-)</code></pre>
+cjm generate \
+  --input user.hpp \
+  --output user.cjm.hpp</code></pre>
         </div>
       </div>
     </section>
@@ -150,6 +143,91 @@ cjm_generate(
       <div>
         <span class="proof-kicker">Runtime</span>
         <strong>Zero overhead introduced by CJM</strong>
+      </div>
+    </section>
+
+    <section class="use-cjm" aria-labelledby="use-cjm-title">
+      <div class="section-copy">
+        <p class="eyebrow">Try CJM from source</p>
+        <h2 id="use-cjm-title">Use CJM Today</h2>
+        <p>
+          CJM can be tried directly from the source checkout. The packaged
+          <code>find_package</code> workflow is planned, but v0.3.0 already supports
+          local CLI and CMake example workflows.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        <article class="step-card">
+          <span class="step-number">1</span>
+          <h3>Write ordinary <span class="term-cpp">C++</span></h3>
+          <pre><code>#pragma once
+
+#include &lt;string&gt;
+
+struct User {
+    std::string name; // json:"name"
+    int age = 0;      // json:"age"
+};</code></pre>
+        </article>
+
+        <article class="step-card">
+          <span class="step-number">2</span>
+          <h3>Generate the integration header</h3>
+          <pre><code>cmake -S . -B build
+cmake --build build --target cjm
+
+./build/cjm generate \
+  --input user.hpp \
+  --output user.cjm.hpp</code></pre>
+        </article>
+
+        <article class="step-card">
+          <span class="step-number">3</span>
+          <h3>Use it with <span class="term-json">nlohmann/json</span></h3>
+          <pre><code>#include "user.hpp"
+#include "user.cjm.hpp"
+
+#include &lt;nlohmann/json.hpp&gt;
+
+nlohmann::json json = user;
+User round_trip = json.get&lt;User&gt;();</code></pre>
+        </article>
+
+        <article class="step-card">
+          <span class="step-number">4</span>
+          <h3>CMake integration</h3>
+          <pre><code>add_executable(app main.cpp)
+
+target_link_libraries(app PRIVATE
+  nlohmann_json::nlohmann_json)
+
+cjm_generate(
+  TARGET app
+  HEADERS user.hpp
+)</code></pre>
+          <p>
+            <code>app</code> is the normal C++ executable.
+            <code>nlohmann_json::nlohmann_json</code> provides the JSON library used by the generated backend code.
+            <code>cjm_generate</code> reads <code>user.hpp</code>, generates <code>user.cjm.hpp</code>, and makes the generated header available to <code>app</code>.
+          </p>
+        </article>
+      </div>
+
+      <div class="use-notes">
+        <div>
+          <h3>v0.3.0 notes</h3>
+          <ul class="feature-list compact-list">
+            <li>Pass every related model header explicitly with <code>--input</code>.</li>
+            <li>CJM does not automatically discover <code>#include</code> dependencies yet.</li>
+            <li>A file-list or manifest-based input workflow is planned for a future adoption milestone.</li>
+            <li>The current parser expects supported field declarations and JSON metadata comments to be easy to read in source.</li>
+          </ul>
+        </div>
+        <div class="use-links">
+          <a class="button primary" href="https://github.com/cjm-labs/cxx-json-codegen#readme">Full quickstart</a>
+          <a class="button" href="https://github.com/cjm-labs/cxx-json-codegen/releases/tag/v0.3.0">v0.3.0 release notes</a>
+        </div>
       </div>
     </section>
 
@@ -178,13 +256,13 @@ cjm_generate(
           <p>
             CJM sits inside the <span class="term-build">build</span>. The parser/frontend extracts source facts,
             semantic analysis builds Metadata IR, and the backend consumes that IR to generate ordinary C++.
-            Tree-sitter is being evaluated later as frontend research, not as part of v0.2.
+            Tree-sitter remains future frontend research, not part of v0.3.0.
           </p>
         </div>
 
         <div class="architecture-flows">
           <div class="flow" aria-label="Current CJM build-time architecture">
-            <p class="flow-caption">v0.2 current pipeline</p>
+            <p class="flow-caption">v0.3.0 current pipeline</p>
             <div class="flow-step cpp">C++ frontend</div>
             <div class="flow-arrow">&darr;</div>
             <div class="flow-step strong">Metadata IR</div>
@@ -216,96 +294,60 @@ cjm_generate(
       </div>
 
       <div class="panel release">
-        <h2>v0.2.0</h2>
-        <p>The Practical Models release turns CJM into a layered compiler pipeline with practical model support, multi-header CLI input, and stronger verification.</p>
+        <h2>CJM v0.3.0 — Practical Type Coverage</h2>
+        <p>CJM v0.3.0 expands the practical JSON mapping surface with string-keyed maps, fixed-width numeric types, and composed model fixtures.</p>
         <div class="facts">
-          <span>Metadata IR</span>
-          <span>Core / C++ Frontend / nlohmann Backend</span>
-          <span><code>cjm generate</code></span>
-          <span>Repeated <code>--input</code></span>
-          <span>Golden + compile/run tests</span>
-          <span>15/15 tests passed</span>
+          <span><code>std::map&lt;std::string, T&gt;</code></span>
+          <span><code>std::unordered_map&lt;std::string, T&gt;</code></span>
+          <span>fixed-width numeric types</span>
+          <span>nested supported map value types</span>
+          <span>Metadata IR verification</span>
+          <span>Golden + generated-code compile tests</span>
         </div>
+        <a class="text-link" href="https://github.com/cjm-labs/cxx-json-codegen/releases/tag/v0.3.0">Read the v0.3.0 release</a>
       </div>
-    </section>
-
-    <section class="examples">
-      <h2>Example</h2>
-      <div class="example-grid">
-        <pre><code>namespace company::model {
-
-struct Address {
-    std::string city; // json:"city"
-};
-
-struct User {
-    std::string name;                    // json:"name"
-    int age = 0;                         // json:"age"
-    std::vector&lt;std::string&gt; tags;       // json:"tags"
-    Address address;                     // json:"address"
-    std::optional&lt;std::string&gt; nickname; // json:"nickname,omitempty"
-};
-
-} // namespace company::model</code></pre>
-        <pre><code>cjm generate \
-  --input address.hpp \
-  --input user.hpp \
-  --output model.cjm.hpp</code></pre>
-        <pre><code>cmake -S . -B build-v02-verify
-cmake --build build-v02-verify
-ctest --test-dir build-v02-verify \
-  --output-on-failure
-
-15/15 tests passed</code></pre>
-      </div>
-      <p>
-        The current <span class="term-json">nlohmann/json backend</span> generates ordinary
-        C++ integration code for practical schema-shaped models using Go-style field metadata.
-      </p>
     </section>
 
     <section class="release-details">
       <div class="panel">
-        <h2>Supported v0.2 model surface</h2>
+        <h2>v0.3.0 coverage additions</h2>
         <div class="facts">
-          <span><code>bool</code></span>
-          <span>signed and unsigned integers</span>
-          <span>floating-point types</span>
-          <span><code>std::string</code></span>
-          <span>enums</span>
-          <span>namespaces</span>
-          <span>type aliases</span>
-          <span>nested generated structs</span>
-          <span><code>std::vector&lt;T&gt;</code></span>
-          <span><code>std::optional&lt;T&gt;</code></span>
-          <span><code>json:"name"</code></span>
-          <span><code>json:"-"</code></span>
-          <span><code>json:"name,omitempty"</code></span>
+          <span><code>std::map&lt;std::string, T&gt;</code></span>
+          <span><code>std::unordered_map&lt;std::string, T&gt;</code></span>
+          <span>nested supported map value types</span>
+          <span><code>std::int8_t</code> / <code>std::int16_t</code></span>
+          <span><code>std::int32_t</code> / <code>std::int64_t</code></span>
+          <span><code>std::uint8_t</code> / <code>std::uint16_t</code></span>
+          <span><code>std::uint32_t</code> / <code>std::uint64_t</code></span>
+          <span>maps, vectors, optionals, enums, aliases, and generated structs composed together</span>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Verification</h2>
+        <p>v0.3.0 verifies the parser -> semantic analysis -> Metadata IR -> nlohmann backend pipeline with deterministic output checks.</p>
+        <div class="facts">
+          <span>generated-code compile tests</span>
+          <span>generated-code run tests</span>
+          <span>pipeline golden tests</span>
+          <span>CLI golden tests</span>
+          <span>19/19 tests passed</span>
         </div>
       </div>
 
       <div class="panel">
         <h2>Known limitations</h2>
-        <p>v0.2.0 intentionally remains a practical subset. CJM does not yet support full C++ grammar parsing or automatic header discovery.</p>
+        <p>v0.3.0 intentionally remains a practical subset. CJM does not yet support full C++ grammar parsing or automatic header discovery.</p>
         <div class="facts">
-          <span><code>std::map&lt;std::string, T&gt;</code></span>
-          <span><code>std::unordered_map&lt;std::string, T&gt;</code></span>
           <span>arbitrary dynamic JSON values</span>
           <span><code>std::variant</code> / <code>std::any</code></span>
-          <span>pointer fields</span>
+          <span>pointer fields and polymorphism</span>
           <span>custom converters</span>
           <span>enum string mapping policies</span>
           <span>time/datetime mappings</span>
-          <span>automatic header discovery</span>
-          <span>full C++ grammar support</span>
+          <span>multiline field declarations</span>
           <span>production parser replacement</span>
         </div>
-      </div>
-
-      <div class="panel">
-        <h2>Roadmap</h2>
-        <p>v0.3 will focus on practical type coverage, especially string-keyed maps and fixed-width numeric coverage.</p>
-        <p>v0.3.5 will evaluate Tree-sitter as a future C++ frontend foundation. Tree-sitter is not adopted in v0.2.</p>
       </div>
     </section>
 
@@ -344,7 +386,7 @@ ctest --test-dir build-v02-verify \
       </div>
       <div>
         <p>
-          v0.2.0 generates <span class="term-json">nlohmann/json integration</span>. The larger goal is
+          v0.3.0 generates <span class="term-json">nlohmann/json integration</span>. The larger goal is
           a reusable compiler foundation for modern build-time metadata workflows in <span class="term-cpp">C++</span>:
           simple user experience, production-quality engineering, and zero
           runtime overhead introduced by CJM.
@@ -359,7 +401,7 @@ ctest --test-dir build-v02-verify \
     <section class="links">
       <h2>Links</h2>
       <a href="https://github.com/cjm-labs/cxx-json-codegen">CJM GitHub repo</a>
-      <a href="https://github.com/cjm-labs/cxx-json-codegen/blob/main/docs/releases/v0.2.0.md">Release notes</a>
+      <a href="https://github.com/cjm-labs/cxx-json-codegen/releases/tag/v0.3.0">Release notes</a>
       <a href="https://github.com/cjm-labs">CJM Labs organization</a>
     </section>
   </main>
@@ -370,7 +412,7 @@ ctest --test-dir build-v02-verify \
       <span>Standard C++ in. Standard C++ out.</span>
     </div>
     <div class="footer-links">
-      <span>Version v0.2.0</span>
+      <span>Version v0.3.0</span>
       <a href="https://github.com/cjm-labs/cxx-json-codegen/blob/main/LICENSE">MIT License</a>
       <a href="https://github.com/cjm-labs/cxx-json-codegen">GitHub</a>
     </div>
