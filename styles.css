@@ -587,6 +587,13 @@ code {
   grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
   gap: 24px;
   align-items: stretch;
+  margin: 0 0 10px;
+  padding: 34px;
+  background:
+    linear-gradient(135deg, rgba(47, 95, 159, 0.10), rgba(47, 122, 95, 0.08), rgba(201, 138, 28, 0.10)),
+    var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
 }
 
 .early-copy,
@@ -599,6 +606,7 @@ code {
 .early-copy {
   display: grid;
   align-content: start;
+  border-top: 4px solid var(--cpp);
 }
 
 .early-copy .actions {
@@ -616,6 +624,7 @@ code {
   background:
     linear-gradient(135deg, rgba(47, 122, 95, 0.08), rgba(201, 138, 28, 0.09)),
     var(--panel);
+  border-top: 4px solid var(--green);
 }
 
 .dogfood-card h3 {
@@ -633,6 +642,20 @@ code {
 .dogfood-card a {
   color: var(--cpp-dark);
   font-weight: 700;
+}
+
+.dogfood-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.dogfood-links a {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 9px 12px;
+  text-decoration: none;
 }
 
 .workflow-chain {
