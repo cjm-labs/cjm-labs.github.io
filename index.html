@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CJM Labs | Build-time Metadata Compiler for Modern C++</title>
-  <meta name="description" content="CJM is a build-time metadata compiler for Modern C++. v0.3.0 adds practical type coverage for nlohmann/json integration, including string-keyed maps and fixed-width numeric types.">
+  <meta name="description" content="CJM is a build-time metadata compiler for Modern C++. v0.3.0 is ready for early adopters and generates nlohmann/json integration for practical C++ models.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://cjm-labs.org/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="CJM Labs">
   <meta property="og:title" content="CJM Labs | Build-time Metadata Compiler for Modern C++">
-  <meta property="og:description" content="Standard C++ in. Standard C++ out. CJM builds Metadata IR from ordinary C++ declarations and generates nlohmann/json integration during the build.">
+  <meta property="og:description" content="Standard C++ in. Standard C++ out. CJM v0.3.0 is ready for early adopters and generates nlohmann/json integration during the build.">
   <meta property="og:url" content="https://cjm-labs.org/">
   <meta property="og:image" content="https://cjm-labs.org/assets/cjm-logo.svg">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="CJM Labs | Build-time Metadata Compiler for Modern C++">
-  <meta name="twitter:description" content="Standard C++ in. Standard C++ out. CJM builds Metadata IR from ordinary C++ declarations and generates nlohmann/json integration during the build.">
+  <meta name="twitter:description" content="Standard C++ in. Standard C++ out. CJM v0.3.0 is ready for early adopters and generates nlohmann/json integration during the build.">
   <meta name="twitter:image" content="https://cjm-labs.org/assets/cjm-logo.svg">
   <link rel="icon" href="/assets/cjm-logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
@@ -25,7 +25,7 @@
       "@type": "SoftwareSourceCode",
       "name": "CJM",
       "alternateName": "Modern C++ metadata compiler",
-      "description": "CJM is a build-time metadata compiler for Modern C++. v0.3.0 adds practical type coverage for nlohmann/json integration, including string-keyed maps and fixed-width numeric types.",
+      "description": "CJM is a build-time metadata compiler for Modern C++. v0.3.0 is ready for early adopters and generates nlohmann/json integration for practical C++ models.",
       "url": "https://cjm-labs.org/",
       "sameAs": [
         "https://github.com/cjm-labs"
@@ -85,8 +85,8 @@
           <span>Build-time</span>
         </div>
         <div class="actions">
-          <a class="button primary" href="https://github.com/cjm-labs/cxx-json-codegen">GitHub</a>
-          <a class="button" href="https://github.com/cjm-labs/cxx-json-codegen/releases/tag/v0.3.0">v0.3.0 release</a>
+          <a class="button primary" href="#use-cjm-title">Try CJM v0.3.0</a>
+          <a class="button" href="https://github.com/cjm-labs/cxx-json-codegen/issues">Report an issue</a>
         </div>
       </div>
 
@@ -228,6 +228,51 @@ cjm_generate(
           <a class="button primary" href="https://github.com/cjm-labs/cxx-json-codegen#readme">Full quickstart</a>
           <a class="button" href="https://github.com/cjm-labs/cxx-json-codegen/releases/tag/v0.3.0">v0.3.0 release notes</a>
         </div>
+      </div>
+    </section>
+
+    <section class="early-adopters" aria-labelledby="early-adopters-title">
+      <div class="early-copy">
+        <p class="eyebrow">Downstream dogfood</p>
+        <h2 id="early-adopters-title">Early Adopters Welcome</h2>
+        <p class="lede-lite">
+          CJM v0.3.0 is ready for early adopters.
+        </p>
+        <p>
+          It has been dogfooded in a real downstream CMake project using the public
+          <code>FetchContent</code> + <code>cjm_generate</code> workflow, covering the
+          practical JSON mapping surface introduced in v0.3.0.
+        </p>
+        <p>
+          Try it on a small model, report issues, and help shape the v1.0 path.
+          CJM remains an early practical subset, not production-stable yet and not a full C++ parser.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="https://github.com/cjm-labs/cxx-json-codegen">View on GitHub</a>
+          <a class="button" href="https://github.com/cjm-labs/cxx-json-codegen/issues">Report an issue</a>
+        </div>
+      </div>
+
+      <div class="dogfood-card">
+        <h3>Validated downstream workflow</h3>
+        <div class="workflow-chain" aria-label="Validated CJM downstream workflow">
+          <span>FetchContent</span>
+          <span>FetchContent_MakeAvailable</span>
+          <span><code>cjm_generate(...)</code></span>
+          <span>generated <code>*.cjm.hpp</code></span>
+          <span>normal C++ test target</span>
+        </div>
+        <p>
+          CJM v0.3.0 was validated in
+          <a href="https://github.com/lmingzhi618/ull-md-engine">ull-md-engine</a>
+          through the public workflow used by downstream CMake projects.
+        </p>
+        <p>
+          The downstream tests covered optionals, vectors, ordered and unordered
+          string-keyed maps, nested generated structs, enums, ignored fields,
+          <code>omitempty</code>, fixed-width integers, and generated
+          <code>to_json</code> / <code>from_json</code> round trips.
+        </p>
       </div>
     </section>
 
@@ -402,6 +447,8 @@ cjm_generate(
       <h2>Links</h2>
       <a href="https://github.com/cjm-labs/cxx-json-codegen">CJM GitHub repo</a>
       <a href="https://github.com/cjm-labs/cxx-json-codegen/releases/tag/v0.3.0">Release notes</a>
+      <a href="https://github.com/lmingzhi618/ull-md-engine">Downstream dogfood repo</a>
+      <a href="https://github.com/cjm-labs/cxx-json-codegen/issues">Issues</a>
       <a href="https://github.com/cjm-labs">CJM Labs organization</a>
     </section>
   </main>
@@ -415,6 +462,7 @@ cjm_generate(
       <span>Version v0.3.0</span>
       <a href="https://github.com/cjm-labs/cxx-json-codegen/blob/main/LICENSE">MIT License</a>
       <a href="https://github.com/cjm-labs/cxx-json-codegen">GitHub</a>
+      <a href="https://github.com/cjm-labs/cxx-json-codegen/issues">Issues</a>
     </div>
   </footer>
 </body>

@@ -426,6 +426,7 @@ code {
 .workbench,
 .proof-strip,
 .use-cjm,
+.early-adopters,
 .product-grid,
 .release-details,
 .principles,
@@ -579,6 +580,90 @@ code {
   flex-wrap: wrap;
   gap: 12px;
   justify-content: flex-end;
+}
+
+.early-adopters {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.early-copy,
+.dogfood-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 30px;
+}
+
+.early-copy {
+  display: grid;
+  align-content: start;
+}
+
+.early-copy .actions {
+  margin-top: 8px;
+}
+
+.lede-lite {
+  color: var(--cpp-dark);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.dogfood-card {
+  background:
+    linear-gradient(135deg, rgba(47, 122, 95, 0.08), rgba(201, 138, 28, 0.09)),
+    var(--panel);
+}
+
+.dogfood-card h3 {
+  margin-bottom: 16px;
+}
+
+.dogfood-card p {
+  color: var(--muted);
+}
+
+.dogfood-card p:last-child {
+  margin-bottom: 0;
+}
+
+.dogfood-card a {
+  color: var(--cpp-dark);
+  font-weight: 700;
+}
+
+.workflow-chain {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.workflow-chain span {
+  display: block;
+  border: 1px solid var(--line);
+  background: #fbfbf8;
+  padding: 10px 12px;
+  font-weight: 650;
+}
+
+.workflow-chain span:nth-child(1),
+.workflow-chain span:nth-child(2) {
+  border-color: rgba(47, 95, 159, 0.26);
+  background: rgba(47, 95, 159, 0.07);
+}
+
+.workflow-chain span:nth-child(3),
+.workflow-chain span:nth-child(4) {
+  border-color: rgba(47, 122, 95, 0.28);
+  background: rgba(47, 122, 95, 0.08);
+}
+
+.workflow-chain span:nth-child(5) {
+  border-color: rgba(201, 138, 28, 0.34);
+  background: var(--json-soft);
 }
 
 .product-grid {
@@ -859,6 +944,7 @@ footer > div {
   .hero,
   .product-grid,
   .release-details,
+  .early-adopters,
   .steps-grid,
   .use-notes,
   .proof-strip,
