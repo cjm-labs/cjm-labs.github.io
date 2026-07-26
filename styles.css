@@ -43,9 +43,9 @@ a {
 
 .site-header,
 footer {
-  max-width: 1180px;
+  max-width: 1880px;
   margin: 0 auto;
-  padding: 18px 24px;
+  padding: 18px clamp(28px, 4.5vw, 72px);
   display: flex;
   justify-content: space-between;
   gap: 24px;
@@ -72,7 +72,7 @@ footer {
 
 nav,
 .actions,
-.links,
+.links-list,
 footer {
   display: flex;
   gap: 14px;
@@ -80,30 +80,32 @@ footer {
 }
 
 nav a,
-.links a {
+.links a,
+.links-list a {
   color: var(--muted);
   text-decoration: none;
 }
 
 nav a:hover,
-.links a:hover {
+.links a:hover,
+.links-list a:hover {
   color: var(--text);
 }
 
 main {
-  max-width: 1180px;
+  max-width: 1880px;
   margin: 0 auto;
-  padding: 22px 24px 64px;
+  padding: 22px clamp(28px, 4.5vw, 72px) 30px;
 }
 
 .hero {
-  min-height: 640px;
+  min-height: 560px;
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
+  grid-template-columns: minmax(560px, 0.9fr) minmax(680px, 1.1fr);
   align-items: center;
-  gap: 64px;
+  gap: clamp(36px, 4vw, 72px);
   border-top: 1px solid var(--line);
-  padding: 66px 0 58px;
+  padding: 44px 0 38px;
 }
 
 .hero-visual {
@@ -239,10 +241,11 @@ p {
 
 h1 {
   max-width: 760px;
-  font-size: clamp(44px, 6.6vw, 82px);
-  line-height: 1;
+  font-size: clamp(42px, 4vw, 64px);
+  line-height: 1.02;
   letter-spacing: 0;
-  margin-bottom: 18px;
+  margin-bottom: 22px;
+  text-wrap: balance;
 }
 
 h2 {
@@ -259,9 +262,10 @@ h3 {
 }
 
 .lede {
-  font-size: 22px;
+  max-width: 780px;
+  font-size: clamp(21px, 1.65vw, 26px);
   color: var(--cpp-dark);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .lede .term-json {
@@ -269,7 +273,7 @@ h3 {
 }
 
 .intro {
-  max-width: 620px;
+  max-width: 760px;
   color: var(--muted);
   font-size: 17px;
   margin-bottom: 18px;
@@ -433,7 +437,7 @@ code {
 .philosophy,
 .links {
   border-top: 1px solid var(--line);
-  padding: 58px 0;
+  padding: 32px 0;
 }
 
 .proof-strip {
@@ -496,6 +500,7 @@ code {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 18px;
+  align-items: start;
 }
 
 .step-card {
@@ -697,8 +702,24 @@ code {
 
 .release-details {
   display: grid;
-  grid-template-columns: 1.2fr 1.2fr 0.8fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas:
+    "scope verify"
+    "limits limits";
   gap: 22px;
+  align-items: start;
+}
+
+.release-details .panel:nth-child(1) {
+  grid-area: scope;
+}
+
+.release-details .panel:nth-child(2) {
+  grid-area: verify;
+}
+
+.release-details .panel:nth-child(3) {
+  grid-area: limits;
 }
 
 .vision,
@@ -713,7 +734,7 @@ code {
 .principles {
   display: grid;
   gap: 18px;
-  padding: 40px 0 58px;
+  padding: 32px 0 38px;
 }
 
 .vision {
@@ -789,9 +810,22 @@ code {
 .panel {
   background: var(--panel);
   border: 1px solid var(--line);
-  padding: 32px;
+  padding: 28px;
   position: relative;
   overflow: hidden;
+}
+
+.release-details h2 {
+  font-size: clamp(26px, 2.25vw, 34px);
+}
+
+.release-details .facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.release-details .panel:nth-child(3) .facts {
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
 }
 
 .panel::before {
@@ -816,7 +850,14 @@ code {
 .facts span {
   background: #fbfbf8;
   border: 1px solid var(--line);
-  padding: 11px 13px;
+  padding: 10px 12px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.facts code {
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .feature-list li {
@@ -909,9 +950,28 @@ code {
   color: var(--muted);
 }
 
+.links {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 14px 24px;
+  padding-top: 24px;
+  padding-bottom: 18px;
+}
+
+.links h2 {
+  margin-bottom: 0;
+}
+
+.links-list {
+  align-items: center;
+}
+
 footer {
   border-top: 1px solid var(--line);
   color: var(--muted);
+  padding-top: 14px;
+  padding-bottom: 16px;
 }
 
 footer > div {
@@ -930,11 +990,11 @@ footer > div {
 }
 
 .principles-intro {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
   gap: 24px;
-  padding: 18px 20px;
+  padding: 16px 20px;
   background:
     linear-gradient(90deg, rgba(47, 95, 159, 0.07), rgba(201, 138, 28, 0.08)),
     var(--panel);
@@ -947,10 +1007,36 @@ footer > div {
 }
 
 .principles-intro p:last-child {
-  max-width: 720px;
+  max-width: none;
   margin-bottom: 0;
   color: var(--muted);
   text-align: right;
+}
+
+@media (min-width: 1280px) {
+  .hero-copy {
+    padding-left: 8px;
+  }
+
+  .terminal-card pre {
+    min-height: 330px;
+  }
+}
+
+@media (max-width: 1380px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1180px) {
+  .release-details {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "scope"
+      "verify"
+      "limits";
+  }
 }
 
 @media (max-width: 780px) {
@@ -975,7 +1061,8 @@ footer > div {
   .architecture,
   .philosophy,
   .principles,
-  .example-grid {
+  .example-grid,
+  .links {
     grid-template-columns: 1fr;
   }
 
@@ -990,7 +1077,8 @@ footer > div {
   }
 
   h1 {
-    font-size: 44px;
+    font-size: 38px;
+    line-height: 1.04;
   }
 
   h2 {
