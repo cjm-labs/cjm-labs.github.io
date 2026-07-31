@@ -3,19 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CJM — Build-time Metadata Compiler for Modern C++</title>
-  <meta name="description" content="CJM generates ordinary C++ JSON integration code from source-level metadata at build time. v0.3.6 makes the Tree-sitter C++ frontend the default parser path.">
+  <title>CJM v0.4.0 — Build-time Metadata Compiler for Modern C++</title>
+  <meta name="description" content="CJM v0.4.0 generates ordinary C++ JSON integration code at build time, adding std::array support, enum string mapping, and experimental model-contract metadata.">
+  <meta name="keywords" content="CJM, Modern C++, C++ code generation, build-time metadata compiler, nlohmann json, Metadata IR, CMake, std::array, enum string mapping">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://cjm-labs.org/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="CJM Labs">
-  <meta property="og:title" content="CJM — Build-time Metadata Compiler for Modern C++">
-  <meta property="og:description" content="CJM v0.3.6 keeps the public CMake workflow stable while moving the C++ frontend to a Tree-sitter-backed parser path.">
+  <meta property="og:title" content="CJM v0.4.0 — Build-time Metadata Compiler for Modern C++">
+  <meta property="og:description" content="CJM v0.4.0 adds std::array support, enum string mapping, and generated model-contract metadata while preserving the public CMake workflow.">
   <meta property="og:url" content="https://cjm-labs.org/">
   <meta property="og:image" content="https://cjm-labs.org/assets/cjm-logo.svg">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="CJM — Build-time Metadata Compiler for Modern C++">
-  <meta name="twitter:description" content="CJM v0.3.6 keeps the public CMake workflow stable while moving the C++ frontend to a Tree-sitter-backed parser path.">
+  <meta name="twitter:title" content="CJM v0.4.0 — Build-time Metadata Compiler for Modern C++">
+  <meta name="twitter:description" content="CJM v0.4.0 adds std::array support, enum string mapping, and generated model-contract metadata while preserving the public CMake workflow.">
   <meta name="twitter:image" content="https://cjm-labs.org/assets/cjm-logo.svg">
   <link rel="icon" href="/assets/cjm-logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
@@ -25,15 +26,16 @@
       "@type": "SoftwareSourceCode",
       "name": "CJM",
       "alternateName": "Modern C++ metadata compiler",
-      "description": "CJM generates ordinary C++ JSON integration code from source-level metadata at build time. v0.3.6 makes the Tree-sitter C++ frontend the default parser path while preserving the public CMake workflow.",
+      "description": "CJM v0.4.0 generates ordinary C++ JSON integration code at build time, adding std::array support, enum string mapping, and experimental model-contract metadata while preserving the public CMake workflow.",
       "url": "https://cjm-labs.org/",
+      "releaseNotes": "https://github.com/cjm-labs/cxx-json-codegen/releases/tag/v0.4.0",
       "sameAs": [
         "https://github.com/cjm-labs"
       ],
       "codeRepository": "https://github.com/cjm-labs/cxx-json-codegen",
       "programmingLanguage": "C++",
       "runtimePlatform": "CMake",
-      "softwareVersion": "v0.3.6",
+      "softwareVersion": "v0.4.0",
       "license": "https://opensource.org/license/mit/",
       "creator": {
         "@type": "Organization",
@@ -55,7 +57,7 @@
     <nav>
       <a href="https://github.com/cjm-labs/cxx-json-codegen">GitHub</a>
       <a href="https://github.com/cjm-labs/cxx-json-codegen/discussions/129">Feedback</a>
-      <a href="https://github.com/cjm-labs/cxx-json-codegen/releases/tag/v0.3.6">Release notes</a>
+      <a href="https://github.com/cjm-labs/cxx-json-codegen/releases/tag/v0.4.0">Release notes</a>
     </nav>
   </header>
 
@@ -65,7 +67,7 @@
         <div class="product-lockup">
           <img class="logo-mark logo-mark-large" src="assets/cjm-logo.svg" width="136" height="87" alt="" aria-hidden="true">
           <div>
-            <p class="eyebrow">CJM v0.3.6</p>
+            <p class="eyebrow">CJM v0.4.0</p>
             <p class="product-line"><span class="term-build">Build-time Metadata Compiler</span> for <span class="term-cpp">Modern C++</span></p>
           </div>
         </div>
@@ -86,7 +88,7 @@
           <span>Build-time</span>
         </div>
         <div class="actions">
-          <a class="button primary" href="https://github.com/cjm-labs/cxx-json-codegen#quickstart">Try CJM v0.3.6</a>
+          <a class="button primary" href="https://github.com/cjm-labs/cxx-json-codegen#quickstart">Try CJM v0.4.0</a>
           <a class="button" href="https://github.com/cjm-labs/cxx-json-codegen/discussions/129">Join the feedback thread</a>
         </div>
       </div>
@@ -116,9 +118,11 @@
             <span></span>
             <strong>user.hpp</strong>
           </div>
-          <pre><code>struct User {
+          <pre><code>enum class Status { Active, Disabled };
+
+struct User {
     std::string name; // json:"name"
-    int age = 0;      // json:"age"
+    Status status;   // json:"status"
 };
 
 cjm generate \
@@ -152,13 +156,14 @@ cjm generate \
         <p class="eyebrow">Downstream dogfood</p>
         <h2 id="early-adopters-title">Early Adopters Welcome</h2>
         <p class="lede-lite">
-          CJM v0.3.6 is ready for early adopters who want to try build-time JSON
+          CJM v0.4.0 is ready for early adopters who want to try build-time JSON
           integration for ordinary Modern C++ models.
         </p>
         <p>
           It has been dogfooded in a real downstream CMake project using the public
           <code>FetchContent</code> + <code>cjm_generate</code> workflow, covering the
-          practical JSON mapping surface introduced across the v0.3 line.
+          practical JSON mapping surface introduced across the v0.3 line. v0.4.0 keeps
+          that workflow and expands strongly typed, structured model support.
         </p>
         <p>
           Try it on a small model. If something fails or feels awkward, share the
@@ -166,7 +171,7 @@ cjm generate \
           not production-stable v1.0 and not a full C++ parser.
         </p>
         <div class="actions">
-          <a class="button primary" href="https://github.com/cjm-labs/cxx-json-codegen#quickstart">Try CJM v0.3.6</a>
+          <a class="button primary" href="https://github.com/cjm-labs/cxx-json-codegen#quickstart">Try CJM v0.4.0</a>
           <a class="button" href="https://github.com/cjm-labs/cxx-json-codegen/discussions/129">Join the feedback thread</a>
         </div>
       </div>
@@ -203,7 +208,7 @@ cjm generate \
         <p class="eyebrow">Downstream quickstart</p>
         <h2 id="use-cjm-title">Use CJM Today</h2>
         <p>
-          CJM v0.3.6 can be tried from a downstream CMake project with
+          CJM v0.4.0 can be tried from a downstream CMake project with
           <code>FetchContent</code>. Packaged installation is future work, but the
           current release already supports the public <code>cjm_generate</code> workflow.
         </p>
@@ -231,7 +236,7 @@ struct User {
 FetchContent_Declare(
   cxx_json_codegen
   GIT_REPOSITORY https://github.com/cjm-labs/cxx-json-codegen.git
-  GIT_TAG v0.3.6
+  GIT_TAG v0.4.0
 )
 
 FetchContent_MakeAvailable(cxx_json_codegen)</code></pre>
@@ -270,12 +275,12 @@ User round_trip = json.get&lt;User&gt;();</code></pre>
 
       <div class="use-notes">
         <div>
-          <h3>v0.3.6 notes</h3>
+          <h3>v0.4.0 notes</h3>
           <ul class="feature-list compact-list">
-            <li>Pass every related model header explicitly with <code>--input</code>.</li>
+            <li>Pass every related model header explicitly with <code>--input</code> or grouped inputs.</li>
             <li>CJM does not automatically discover <code>#include</code> dependencies yet.</li>
-            <li>A file-list or manifest-based input workflow is planned for a future adoption milestone.</li>
-            <li>The default Tree-sitter frontend is intentionally strict and still accepts only CJM's documented practical subset.</li>
+            <li>CMake currently generates one <code>*.cjm.hpp</code> per listed header under <code>generated/cjm</code>.</li>
+            <li>Generated model-contract metadata is experimental and may change before v1.0.</li>
           </ul>
         </div>
         <div class="use-links">
@@ -310,13 +315,14 @@ User round_trip = json.get&lt;User&gt;();</code></pre>
           <p>
             CJM sits inside the <span class="term-build">build</span>. The parser/frontend extracts source facts,
             semantic analysis builds Metadata IR, and the backend consumes that IR to generate ordinary C++.
-            v0.3.6 uses a Tree-sitter-backed C++ frontend by default while keeping those implementation details inside the frontend layer.
+            v0.4.0 keeps the Tree-sitter-backed C++ frontend inside that frontend layer and adds the first
+            generated model-contract metadata for downstream tooling experiments.
           </p>
         </div>
 
         <div class="architecture-flows">
           <div class="flow" aria-label="Current CJM build-time architecture">
-            <p class="flow-caption">v0.3.6 current pipeline</p>
+            <p class="flow-caption">v0.4.0 current pipeline</p>
             <div class="flow-step cpp">C++ frontend</div>
             <div class="flow-arrow">&darr;</div>
             <div class="flow-step strong">Metadata IR</div>
@@ -343,36 +349,40 @@ User round_trip = json.get&lt;User&gt;();</code></pre>
           <li>Extracts source-level metadata from ordinary C++ declarations</li>
           <li>Runs richer semantic analysis for practical model mapping</li>
           <li>Generates nlohmann/json integration code</li>
-          <li>Supports repeated explicit input headers</li>
+          <li>Generates experimental model-contract metadata for downstream tools</li>
+          <li>Supports grouped and repeated explicit input headers</li>
         </ul>
       </div>
 
       <div class="panel release">
-        <h2>CJM v0.3.6 — Tree-sitter Frontend Default</h2>
-        <p>CJM v0.3.6 promotes the Tree-sitter-backed C++ frontend to the default parser path while preserving the v0.3 public CLI, CMake workflow, Metadata IR, and generated JSON behavior.</p>
+        <h2>CJM v0.4.0 — Model Contract Metadata</h2>
+        <p>CJM v0.4.0 expands the practical mapping surface and introduces the first generated model-contract metadata for downstream tools.</p>
         <div class="facts">
-          <span>Tree-sitter C++ frontend by default</span>
-          <span>same public workflow</span>
-          <span>same Metadata IR boundary</span>
-          <span>strict practical subset</span>
-          <span>parser parity coverage</span>
-          <span>21/21 tests passed</span>
+          <span><code>std::array&lt;T, N&gt;</code></span>
+          <span>enum strings by default</span>
+          <span>enum conversion helpers</span>
+          <span>model-contract descriptors</span>
+          <span>grouped explicit inputs</span>
+          <span>same CMake workflow</span>
         </div>
-        <a class="text-link" href="https://github.com/cjm-labs/cxx-json-codegen/releases/tag/v0.3.6">Read the v0.3.6 release</a>
+        <a class="text-link" href="https://github.com/cjm-labs/cxx-json-codegen/releases/tag/v0.4.0">Read the v0.4.0 release</a>
       </div>
     </section>
 
     <section class="release-details">
       <div class="panel">
-        <h2>Supported v0.3.6 scope</h2>
+        <h2>Supported v0.4.0 scope</h2>
         <div class="facts">
           <span>scalar fields</span>
+          <span><code>std::array&lt;T, N&gt;</code></span>
           <span><code>std::map&lt;std::string, T&gt;</code></span>
           <span><code>std::unordered_map&lt;std::string, T&gt;</code></span>
           <span>nested generated structs</span>
           <span><code>std::vector&lt;T&gt;</code></span>
           <span><code>std::optional&lt;T&gt;</code></span>
-          <span>enums</span>
+          <span>enum and enum class as strings</span>
+          <span>generated enum conversion helpers</span>
+          <span>experimental model-contract metadata</span>
           <span><code>json:"-"</code> ignored fields</span>
           <span><code>omitempty</code></span>
           <span><code>std::int8_t</code> / <code>std::int16_t</code></span>
@@ -384,22 +394,23 @@ User round_trip = json.get&lt;User&gt;();</code></pre>
 
       <div class="panel">
         <h2>Verification</h2>
-        <p>v0.3.6 verifies the Tree-sitter frontend -> semantic analysis -> Metadata IR -> nlohmann backend pipeline while keeping generated output compatible with existing golden tests.</p>
+        <p>v0.4.0 keeps the parser/frontend -> semantic analysis -> Metadata IR -> nlohmann backend pipeline focused on deterministic generated C++.</p>
         <div class="facts">
-          <span>Tree-sitter adapter tests</span>
-          <span>Tree-sitter smoke tests</span>
+          <span>array mapping coverage</span>
+          <span>enum string coverage</span>
+          <span>model-contract metadata coverage</span>
           <span>generated-code compile tests</span>
           <span>generated-code run tests</span>
           <span>pipeline golden tests</span>
           <span>CLI golden tests</span>
-          <span>21/21 tests passed</span>
         </div>
       </div>
 
       <div class="panel">
         <h2>Known limitations</h2>
-        <p>v0.3.6 intentionally remains a practical subset. Tree-sitter can parse far more C++ than CJM supports semantically, so CJM fails closed for unsupported managed declarations.</p>
+        <p>v0.4.0 intentionally remains focused on strongly typed, structured, modelable JSON. It does not add arbitrary dynamic JSON, custom converters, native JSON runtime code, or automatic header discovery.</p>
         <div class="facts">
+          <span>arbitrary JSON values</span>
           <span>not full C++ grammar support</span>
           <span>no automatic header discovery yet</span>
           <span>multiline managed fields are not documented as supported</span>
@@ -407,7 +418,8 @@ User round_trip = json.get&lt;User&gt;();</code></pre>
           <span><code>std::variant</code> / <code>std::any</code></span>
           <span>pointer or polymorphic serialization</span>
           <span>custom converters</span>
-          <span>enum string mapping policies</span>
+          <span>custom enum string mapping policies</span>
+          <span>time and datetime mappings</span>
           <span>native JSON backend</span>
           <span>packaged installation is future work</span>
         </div>
@@ -449,7 +461,8 @@ User round_trip = json.get&lt;User&gt;();</code></pre>
       </div>
       <div>
         <p>
-          v0.3.6 generates <span class="term-json">nlohmann/json integration</span>. The larger goal is
+          v0.4.0 generates <span class="term-json">nlohmann/json integration</span> and experimental
+          model-contract metadata. The larger goal is
           a reusable compiler foundation for modern build-time metadata workflows in <span class="term-cpp">C++</span>:
           simple user experience, production-quality engineering, and zero
           runtime overhead introduced by CJM.
@@ -465,7 +478,7 @@ User round_trip = json.get&lt;User&gt;();</code></pre>
       <h2>Links</h2>
       <div class="links-list">
         <a href="https://github.com/cjm-labs/cxx-json-codegen">CJM GitHub repo</a>
-        <a href="https://github.com/cjm-labs/cxx-json-codegen/releases/tag/v0.3.6">Release notes</a>
+        <a href="https://github.com/cjm-labs/cxx-json-codegen/releases/tag/v0.4.0">Release notes</a>
         <a href="https://github.com/cjm-labs/cxx-json-codegen/discussions/129">Early-adopter feedback thread</a>
         <a href="https://github.com/cjm-labs/cxx-json-codegen/discussions">Discussions</a>
         <a href="https://github.com/cjm-labs/cxx-json-codegen/blob/main/CONTRIBUTING.md">Contributing guide</a>
@@ -482,7 +495,7 @@ User round_trip = json.get&lt;User&gt;();</code></pre>
       <span>Standard C++ in. Standard C++ out.</span>
     </div>
     <div class="footer-links">
-      <span>Version v0.3.6</span>
+      <span>Version v0.4.0</span>
       <a href="https://github.com/cjm-labs/cxx-json-codegen/blob/main/LICENSE">MIT License</a>
       <a href="https://github.com/cjm-labs/cxx-json-codegen">GitHub</a>
       <a href="https://github.com/cjm-labs/cxx-json-codegen/discussions/129">Feedback</a>
