@@ -694,6 +694,11 @@ code {
   background: var(--json-soft);
 }
 
+.workflow-chain span:nth-child(6) {
+  border-color: rgba(24, 63, 118, 0.24);
+  background: rgba(24, 63, 118, 0.06);
+}
+
 .product-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
