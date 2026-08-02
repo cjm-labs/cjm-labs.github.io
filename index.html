@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CJM v0.4.0 — Build-time Metadata Compiler for Modern C++</title>
-  <meta name="description" content="CJM v0.4.0 generates ordinary C++ JSON integration code at build time, adding std::array support, enum string mapping, and experimental model-contract metadata.">
-  <meta name="keywords" content="CJM, Modern C++, C++ code generation, build-time metadata compiler, nlohmann json, Metadata IR, CMake, std::array, enum string mapping">
+  <title>CJM v0.5.0 — Build-time C++ Metadata Compiler + JSON Schema</title>
+  <meta name="description" content="CJM v0.5.0 adds JSON Schema Draft 2020-12 generation from Metadata IR, alongside build-time nlohmann/json C++ integration for Modern C++.">
+  <meta name="keywords" content="CJM, Modern C++, C++ code generation, build-time metadata compiler, JSON Schema Draft 2020-12, nlohmann json, Metadata IR, CMake, cjm generate-schema, schema backend">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://cjm-labs.org/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="CJM Labs">
-  <meta property="og:title" content="CJM v0.4.0 — Build-time Metadata Compiler for Modern C++">
-  <meta property="og:description" content="CJM v0.4.0 adds std::array support, enum string mapping, and generated model-contract metadata while preserving the public CMake workflow.">
+  <meta property="og:title" content="CJM v0.5.0 — Build-time C++ Metadata Compiler + JSON Schema">
+  <meta property="og:description" content="CJM v0.5.0 adds a JSON Schema Draft 2020-12 backend while preserving nlohmann/json C++ integration and the public CMake workflow.">
   <meta property="og:url" content="https://cjm-labs.org/">
   <meta property="og:image" content="https://cjm-labs.org/assets/cjm-logo.svg">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="CJM v0.4.0 — Build-time Metadata Compiler for Modern C++">
-  <meta name="twitter:description" content="CJM v0.4.0 adds std::array support, enum string mapping, and generated model-contract metadata while preserving the public CMake workflow.">
+  <meta name="twitter:title" content="CJM v0.5.0 — Build-time C++ Metadata Compiler + JSON Schema">
+  <meta name="twitter:description" content="CJM v0.5.0 adds a JSON Schema Draft 2020-12 backend while preserving nlohmann/json C++ integration and the public CMake workflow.">
   <meta name="twitter:image" content="https://cjm-labs.org/assets/cjm-logo.svg">
   <link rel="icon" href="/assets/cjm-logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
@@ -26,16 +26,17 @@
       "@type": "SoftwareSourceCode",
       "name": "CJM",
       "alternateName": "Modern C++ metadata compiler",
-      "description": "CJM v0.4.0 generates ordinary C++ JSON integration code at build time, adding std::array support, enum string mapping, and experimental model-contract metadata while preserving the public CMake workflow.",
+      "description": "CJM v0.5.0 adds JSON Schema Draft 2020-12 generation from Metadata IR, alongside build-time nlohmann/json C++ integration for ordinary Modern C++ models.",
       "url": "https://cjm-labs.org/",
-      "releaseNotes": "https://github.com/cjm-labs/cxx-json-codegen/releases/tag/v0.4.0",
+      "releaseNotes": "https://github.com/cjm-labs/cxx-json-codegen/releases/tag/v0.5.0",
+      "keywords": "Modern C++, build-time code generation, metadata compiler, JSON Schema, nlohmann/json, CMake, Metadata IR",
       "sameAs": [
         "https://github.com/cjm-labs"
       ],
       "codeRepository": "https://github.com/cjm-labs/cxx-json-codegen",
       "programmingLanguage": "C++",
       "runtimePlatform": "CMake",
-      "softwareVersion": "v0.4.0",
+      "softwareVersion": "v0.5.0",
       "license": "https://opensource.org/license/mit/",
       "creator": {
         "@type": "Organization",
@@ -57,7 +58,7 @@
     <nav>
       <a href="https://github.com/cjm-labs/cxx-json-codegen">GitHub</a>
       <a href="https://github.com/cjm-labs/cxx-json-codegen/discussions/129">Feedback</a>
-      <a href="https://github.com/cjm-labs/cxx-json-codegen/releases/tag/v0.4.0">Release notes</a>
+      <a href="https://github.com/cjm-labs/cxx-json-codegen/releases/tag/v0.5.0">Release notes</a>
     </nav>
   </header>
 
@@ -67,15 +68,16 @@
         <div class="product-lockup">
           <img class="logo-mark logo-mark-large" src="assets/cjm-logo.svg" width="136" height="87" alt="" aria-hidden="true">
           <div>
-            <p class="eyebrow">CJM v0.4.0</p>
+            <p class="eyebrow">CJM v0.5.0</p>
             <p class="product-line"><span class="term-build">Build-time Metadata Compiler</span> for <span class="term-cpp">Modern C++</span></p>
           </div>
         </div>
         <h1><span class="term-build">Metadata compiler</span> for <span class="term-cpp">Modern C++</span>.</h1>
-        <p class="lede">Write ordinary <span class="term-cpp">C++</span> models with source-level <span class="term-json">JSON metadata</span>. CJM builds a stable <span class="term-build">Metadata IR</span> and generates ordinary C++ integration code during your build.</p>
+        <p class="lede">Write ordinary <span class="term-cpp">C++</span> models with source-level <span class="term-json">JSON metadata</span>. CJM builds a stable <span class="term-build">Metadata IR</span> and now emits both C++ integration code and JSON Schema artifacts during your build.</p>
         <p class="intro">
-          <span class="term-json">nlohmann/json</span> is the first official backend.
-          CJM is not a JSON library, reflection framework, or serialization runtime.
+          <span class="term-json">nlohmann/json</span> integration and JSON Schema Draft 2020-12 artifacts
+          are generated from the same validated Metadata IR.
+          CJM is not a JSON library, schema-first generator, OpenAPI framework, or runtime validator.
         </p>
         <p class="intro">
           <strong>Standard C++ in. Standard C++ out.</strong>
@@ -84,11 +86,11 @@
         <div class="signal-row" aria-label="CJM themes">
           <span>C++</span>
           <span>Metadata IR</span>
-          <span>CMake</span>
+          <span>JSON Schema</span>
           <span>Build-time</span>
         </div>
         <div class="actions">
-          <a class="button primary" href="https://github.com/cjm-labs/cxx-json-codegen#quickstart">Try CJM v0.4.0</a>
+          <a class="button primary" href="https://github.com/cjm-labs/cxx-json-codegen#quickstart">Try CJM v0.5.0</a>
           <a class="button" href="https://github.com/cjm-labs/cxx-json-codegen/discussions/129">Join the feedback thread</a>
         </div>
       </div>
@@ -106,8 +108,8 @@
           </div>
           <div class="pipeline-link">→</div>
           <div class="pipeline-node output">
-            <span>nlohmann/json</span>
-            <strong>Backend</strong>
+            <span>backends</span>
+            <strong>nlohmann/json + Schema</strong>
           </div>
         </div>
 
@@ -127,7 +129,11 @@ struct User {
 
 cjm generate \
   --input user.hpp \
-  --output user.cjm.hpp</code></pre>
+  --output user.cjm.hpp
+
+cjm generate-schema \
+  --input user.hpp \
+  --output user.schema.json</code></pre>
         </div>
       </div>
     </section>
@@ -143,7 +149,7 @@ cjm generate \
       </div>
       <div>
         <span class="proof-kicker">Backend</span>
-        <strong>nlohmann/json integration</strong>
+        <strong>nlohmann/json + JSON Schema</strong>
       </div>
       <div>
         <span class="proof-kicker">Runtime</span>
@@ -156,14 +162,14 @@ cjm generate \
         <p class="eyebrow">Downstream dogfood</p>
         <h2 id="early-adopters-title">Early Adopters Welcome</h2>
         <p class="lede-lite">
-          CJM v0.4.0 is ready for early adopters who want to try build-time JSON
-          integration for ordinary Modern C++ models.
+          CJM v0.5.0 is ready for early adopters who want build-time JSON
+          integration and JSON Schema artifacts from ordinary Modern C++ models.
         </p>
         <p>
           It has been dogfooded in a real downstream CMake project using the public
           <code>FetchContent</code> + <code>cjm_generate</code> workflow, covering the
-          practical JSON mapping surface introduced across the v0.3 line. v0.4.0 keeps
-          that workflow and expands strongly typed, structured model support.
+          practical JSON mapping surface introduced across the v0.3 line. v0.5.0 keeps
+          that workflow and adds opt-in schema generation from the same Metadata IR.
         </p>
         <p>
           Try it on a small model. If something fails or feels awkward, share the
@@ -171,7 +177,7 @@ cjm generate \
           not production-stable v1.0 and not a full C++ parser.
         </p>
         <div class="actions">
-          <a class="button primary" href="https://github.com/cjm-labs/cxx-json-codegen#quickstart">Try CJM v0.4.0</a>
+          <a class="button primary" href="https://github.com/cjm-labs/cxx-json-codegen#quickstart">Try CJM v0.5.0</a>
           <a class="button" href="https://github.com/cjm-labs/cxx-json-codegen/discussions/129">Join the feedback thread</a>
         </div>
       </div>
@@ -208,9 +214,10 @@ cjm generate \
         <p class="eyebrow">Downstream quickstart</p>
         <h2 id="use-cjm-title">Use CJM Today</h2>
         <p>
-          CJM v0.4.0 can be tried from a downstream CMake project with
+          CJM v0.5.0 can be tried from a downstream CMake project with
           <code>FetchContent</code>. Packaged installation is future work, but the
-          current release already supports the public <code>cjm_generate</code> workflow.
+          current release already supports the public <code>cjm_generate</code> workflow
+          and opt-in JSON Schema generation.
         </p>
       </div>
 
@@ -236,7 +243,7 @@ struct User {
 FetchContent_Declare(
   cxx_json_codegen
   GIT_REPOSITORY https://github.com/cjm-labs/cxx-json-codegen.git
-  GIT_TAG v0.4.0
+  GIT_TAG v0.5.0
 )
 
 FetchContent_MakeAvailable(cxx_json_codegen)</code></pre>
@@ -244,14 +251,17 @@ FetchContent_MakeAvailable(cxx_json_codegen)</code></pre>
 
         <article class="step-card">
           <span class="step-number">3</span>
-          <h3>Generate <code>*.cjm.hpp</code></h3>
+          <h3>Generate code and schemas</h3>
           <pre><code>cjm_generate(
   TARGET app
   HEADERS user.hpp
+  GENERATED_TARGET app_cjm_generated
+  GENERATE_SCHEMAS
+  GENERATED_SCHEMAS_VAR app_cjm_schemas
 )</code></pre>
           <p>
-            Pass every related model header explicitly. CJM does not automatically discover
-            <code>#include</code> dependencies yet.
+            Schema generation is opt-in. CJM keeps C++ headers under
+            <code>generated/cjm</code> and schema artifacts under <code>generated/schemas</code>.
           </p>
         </article>
 
@@ -275,12 +285,12 @@ User round_trip = json.get&lt;User&gt;();</code></pre>
 
       <div class="use-notes">
         <div>
-          <h3>v0.4.0 notes</h3>
+          <h3>v0.5.0 notes</h3>
           <ul class="feature-list compact-list">
-            <li>Pass every related model header explicitly with <code>--input</code> or grouped inputs.</li>
+            <li>Use <code>cjm generate-schema</code> to emit a JSON Schema artifact from a supported header.</li>
+            <li>Use <code>GENERATE_SCHEMAS</code> to opt into schema generation from <code>cjm_generate(...)</code>.</li>
             <li>CJM does not automatically discover <code>#include</code> dependencies yet.</li>
-            <li>CMake currently generates one <code>*.cjm.hpp</code> per listed header under <code>generated/cjm</code>.</li>
-            <li>Generated model-contract metadata is experimental and may change before v1.0.</li>
+            <li>Schema output is generated from validated Metadata IR, not from a separate schema-first model.</li>
           </ul>
         </div>
         <div class="use-links">
@@ -314,20 +324,19 @@ User round_trip = json.get&lt;User&gt;();</code></pre>
           <h2><span class="term-build">Compiler architecture</span>, normal compiler workflow.</h2>
           <p>
             CJM sits inside the <span class="term-build">build</span>. The parser/frontend extracts source facts,
-            semantic analysis builds Metadata IR, and the backend consumes that IR to generate ordinary C++.
-            v0.4.0 keeps the Tree-sitter-backed C++ frontend inside that frontend layer and adds the first
-            generated model-contract metadata for downstream tooling experiments.
+            semantic analysis builds Metadata IR, and backends consume that IR to generate ordinary C++
+            integration code and JSON Schema artifacts.
           </p>
         </div>
 
         <div class="architecture-flows">
           <div class="flow" aria-label="Current CJM build-time architecture">
-            <p class="flow-caption">v0.4.0 current pipeline</p>
+            <p class="flow-caption">v0.5.0 current pipeline</p>
             <div class="flow-step cpp">C++ frontend</div>
             <div class="flow-arrow">&darr;</div>
             <div class="flow-step strong">Metadata IR</div>
             <div class="flow-arrow">&darr;</div>
-            <div class="flow-step json">nlohmann/json backend</div>
+            <div class="flow-step json">nlohmann/json + JSON Schema backends</div>
           </div>
           <div class="flow" aria-label="Long-term CJM compiler architecture">
             <p class="flow-caption">Long-term architecture</p>
@@ -344,82 +353,90 @@ User round_trip = json.get&lt;User&gt;();</code></pre>
     <section class="product-grid">
       <div class="panel what">
         <h2>What CJM does</h2>
-        <p>CJM turns ordinary <span class="term-cpp">C++ declarations</span> into a stable <span class="term-build">Metadata IR</span>, then emits ordinary C++ code for the current nlohmann/json backend.</p>
+        <p>CJM turns ordinary <span class="term-cpp">C++ declarations</span> into a stable <span class="term-build">Metadata IR</span>, then emits ordinary C++ code and JSON Schema artifacts for supported models.</p>
         <ul class="feature-list">
           <li>Extracts source-level metadata from ordinary C++ declarations</li>
           <li>Runs richer semantic analysis for practical model mapping</li>
           <li>Generates nlohmann/json integration code</li>
-          <li>Generates experimental model-contract metadata for downstream tools</li>
-          <li>Supports grouped and repeated explicit input headers</li>
+          <li>Generates JSON Schema Draft 2020-12 artifacts from Metadata IR</li>
+          <li>Supports opt-in schema generation through CLI and CMake</li>
+          <li>Keeps generated outputs inspectable build artifacts</li>
         </ul>
       </div>
 
       <div class="panel release">
-        <h2>CJM v0.4.0 — Model Contract Metadata</h2>
-        <p>CJM v0.4.0 expands the practical mapping surface and introduces the first generated model-contract metadata for downstream tools.</p>
+        <h2>CJM v0.5.0 — JSON Schema Backend</h2>
+        <p>CJM v0.5.0 adds the first JSON Schema Draft 2020-12 backend. C++ models remain the source of truth, while Metadata IR feeds both generated C++ integration and schema artifacts.</p>
         <div class="facts">
-          <span><code>std::array&lt;T, N&gt;</code></span>
-          <span>enum strings by default</span>
-          <span>enum conversion helpers</span>
-          <span>model-contract descriptors</span>
-          <span>grouped explicit inputs</span>
-          <span>same CMake workflow</span>
+          <span>JSON Schema Draft 2020-12</span>
+          <span><code>cjm generate-schema</code></span>
+          <span><code>GENERATE_SCHEMAS</code></span>
+          <span><code>generated/schemas</code></span>
+          <span><code>std::array</code> extent preserved</span>
+          <span>30/30 tests passed</span>
         </div>
-        <a class="text-link" href="https://github.com/cjm-labs/cxx-json-codegen/releases/tag/v0.4.0">Read the v0.4.0 release</a>
+        <a class="text-link" href="https://github.com/cjm-labs/cxx-json-codegen/releases/tag/v0.5.0">Read the v0.5.0 release</a>
       </div>
     </section>
 
     <section class="release-details">
       <div class="panel">
-        <h2>Supported v0.4.0 scope</h2>
+        <h2>Supported v0.5.0 scope</h2>
         <div class="facts">
-          <span>scalar fields</span>
-          <span><code>std::array&lt;T, N&gt;</code></span>
+          <span>nlohmann/json C++ integration</span>
+          <span>JSON Schema Draft 2020-12 backend</span>
+          <span>object schemas for generated structs</span>
+          <span>scalar and string schema mappings</span>
+          <span><code>std::array&lt;T, N&gt;</code> schema extent</span>
           <span><code>std::map&lt;std::string, T&gt;</code></span>
           <span><code>std::unordered_map&lt;std::string, T&gt;</code></span>
-          <span>nested generated structs</span>
           <span><code>std::vector&lt;T&gt;</code></span>
           <span><code>std::optional&lt;T&gt;</code></span>
-          <span>enum and enum class as strings</span>
-          <span>generated enum conversion helpers</span>
-          <span>experimental model-contract metadata</span>
+          <span>enum and enum class string enums</span>
+          <span>direct generated structs through <code>$ref</code> and <code>$defs</code></span>
+          <span>non-optional supported fields in <code>required</code></span>
           <span><code>json:"-"</code> ignored fields</span>
-          <span><code>omitempty</code></span>
-          <span><code>std::int8_t</code> / <code>std::int16_t</code></span>
-          <span><code>std::int32_t</code> / <code>std::int64_t</code></span>
-          <span><code>std::uint8_t</code> / <code>std::uint16_t</code></span>
-          <span><code>std::uint32_t</code> / <code>std::uint64_t</code></span>
+          <span>generated model-contract metadata</span>
         </div>
       </div>
 
       <div class="panel">
         <h2>Verification</h2>
-        <p>v0.4.0 keeps the parser/frontend -> semantic analysis -> Metadata IR -> nlohmann backend pipeline focused on deterministic generated C++.</p>
+        <p>v0.5.0 verifies schema generation and existing C++ generation through the same parser/frontend -> semantic analysis -> Metadata IR pipeline.</p>
         <div class="facts">
-          <span>array mapping coverage</span>
-          <span>enum string coverage</span>
-          <span>model-contract metadata coverage</span>
+          <span>schema backend golden tests</span>
+          <span>CLI schema generation tests</span>
+          <span>CMake schema artifact tests</span>
+          <span>existing nlohmann backend tests</span>
+          <span>contract backend tests</span>
+          <span>parser and semantic tests</span>
           <span>generated-code compile tests</span>
-          <span>generated-code run tests</span>
-          <span>pipeline golden tests</span>
-          <span>CLI golden tests</span>
+          <span>basic example build/run tests</span>
+          <span>30/30 tests passed</span>
         </div>
       </div>
 
       <div class="panel">
         <h2>Known limitations</h2>
-        <p>v0.4.0 intentionally remains focused on strongly typed, structured, modelable JSON. It does not add arbitrary dynamic JSON, custom converters, native JSON runtime code, or automatic header discovery.</p>
+        <p>v0.5.0 is not a schema-first generator, OpenAPI framework, runtime validator, or cross-language code generator. Schema output is intentionally scoped to CJM's supported practical model surface.</p>
         <div class="facts">
+          <span>schema output for nested containers</span>
+          <span>schema containers whose element or value type is enum or generated struct</span>
+          <span>schema <code>std::optional&lt;T&gt;</code> for enum, generated struct, or container</span>
+          <span>default-value metadata</span>
+          <span>OpenAPI route generation</span>
+          <span>HTTP endpoint policy</span>
+          <span>runtime JSON Schema validation</span>
           <span>arbitrary JSON values</span>
-          <span>not full C++ grammar support</span>
-          <span>no automatic header discovery yet</span>
-          <span>multiline managed fields are not documented as supported</span>
-          <span>private fields</span>
           <span><code>std::variant</code> / <code>std::any</code></span>
           <span>pointer or polymorphic serialization</span>
           <span>custom converters</span>
           <span>custom enum string mapping policies</span>
           <span>time and datetime mappings</span>
+          <span>automatic header discovery</span>
+          <span>full C++ grammar support at the CJM product level</span>
+          <span>multiline managed field declarations</span>
+          <span>private fields</span>
           <span>native JSON backend</span>
           <span>packaged installation is future work</span>
         </div>
@@ -461,8 +478,8 @@ User round_trip = json.get&lt;User&gt;();</code></pre>
       </div>
       <div>
         <p>
-          v0.4.0 generates <span class="term-json">nlohmann/json integration</span> and experimental
-          model-contract metadata. The larger goal is
+          v0.5.0 generates <span class="term-json">nlohmann/json integration</span> and JSON Schema
+          artifacts from the same Metadata IR. The larger goal is
           a reusable compiler foundation for modern build-time metadata workflows in <span class="term-cpp">C++</span>:
           simple user experience, production-quality engineering, and zero
           runtime overhead introduced by CJM.
@@ -478,7 +495,7 @@ User round_trip = json.get&lt;User&gt;();</code></pre>
       <h2>Links</h2>
       <div class="links-list">
         <a href="https://github.com/cjm-labs/cxx-json-codegen">CJM GitHub repo</a>
-        <a href="https://github.com/cjm-labs/cxx-json-codegen/releases/tag/v0.4.0">Release notes</a>
+        <a href="https://github.com/cjm-labs/cxx-json-codegen/releases/tag/v0.5.0">Release notes</a>
         <a href="https://github.com/cjm-labs/cxx-json-codegen/discussions/129">Early-adopter feedback thread</a>
         <a href="https://github.com/cjm-labs/cxx-json-codegen/discussions">Discussions</a>
         <a href="https://github.com/cjm-labs/cxx-json-codegen/blob/main/CONTRIBUTING.md">Contributing guide</a>
@@ -495,7 +512,7 @@ User round_trip = json.get&lt;User&gt;();</code></pre>
       <span>Standard C++ in. Standard C++ out.</span>
     </div>
     <div class="footer-links">
-      <span>Version v0.4.0</span>
+      <span>Version v0.5.0</span>
       <a href="https://github.com/cjm-labs/cxx-json-codegen/blob/main/LICENSE">MIT License</a>
       <a href="https://github.com/cjm-labs/cxx-json-codegen">GitHub</a>
       <a href="https://github.com/cjm-labs/cxx-json-codegen/discussions/129">Feedback</a>
