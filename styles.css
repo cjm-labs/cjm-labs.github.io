@@ -302,6 +302,18 @@ h3 {
 }
 
 .signal-row span:nth-child(2) {
+  border-color: rgba(47, 122, 95, 0.34);
+  color: #235d48;
+  background: rgba(47, 122, 95, 0.08);
+}
+
+.signal-row span:nth-child(3) {
+  border-color: rgba(47, 122, 95, 0.34);
+  color: #235d48;
+  background: rgba(47, 122, 95, 0.08);
+}
+
+.signal-row span:nth-child(4) {
   border-color: rgba(201, 138, 28, 0.36);
   color: #80520f;
   background: var(--json-soft);
